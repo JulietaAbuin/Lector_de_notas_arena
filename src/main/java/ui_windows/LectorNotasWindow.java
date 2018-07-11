@@ -1,28 +1,25 @@
 package ui_windows;
 
-import java.awt.Color;
-
 import org.uqbar.arena.layout.ColumnLayout;
-import org.uqbar.arena.layout.Layout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
-import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.lacar.ui.model.Action;
 
-import modelo.Estudiante;
+import javafx.scene.Parent;
 import modelo.RepoEstudiantes;
 import ui_vm.LectorViewModel;
 
 public class LectorNotasWindow extends Dialog<LectorViewModel>{
+	static LectorViewModel owner = new LectorViewModel();
+
 	public LectorNotasWindow(WindowOwner parent) {
-		super(parent, new LectorViewModel());
+		super(parent, owner);
+		
 	}
-	
 
 	@Override
 	protected void createFormPanel(Panel panel) {
@@ -41,11 +38,15 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 		new Button(actions).setCaption("Ingresar").onClick(this::confirmarEstudiante);
 	}
 
-	protected void confirmarEstudiante() {
+	public void confirmarEstudiante() {
 		
-		if(RepoEstudiantes.getInstance().contieneA("nombreIngresado","legajoIngresado")){
-			System.out.println("me encontre");
-		};
+		if(RepoEstudiantes.getInstance().contieneA(owner.getNombreIngresado(),owner.getLegajoIngresado())){
+			this.accept();
+			Dialog<?> dialog = new NotasUsuarioWindow(this,RepoEstudiantes.getInstance().obtener(owner.getNombreIngresado()));
+			dialog.open();
+			dialog.onAccept(() -> {});
 	
 	}
+
+}
 }

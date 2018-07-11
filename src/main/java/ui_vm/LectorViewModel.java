@@ -11,9 +11,9 @@ import modelo.RepoEstudiantes;
 @Observable
 public class LectorViewModel {
 	
-	private String nombreIngresado;
-	private int legajoIngresado;
-	private List<Estudiante> estudiantes;
+	public String nombreIngresado;
+	public int legajoIngresado;
+	public List<Estudiante> estudiantes;
 
 	public LectorViewModel() {
 		estudiantes = RepoEstudiantes.getInstance().all();
@@ -35,4 +35,6 @@ public class LectorViewModel {
 		this.legajoIngresado = legajoIngresado;
 	}
 	
+
 }
+
