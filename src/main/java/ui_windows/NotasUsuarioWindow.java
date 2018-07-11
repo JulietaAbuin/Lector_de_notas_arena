@@ -1,30 +1,21 @@
 package ui_windows;
 
-import java.util.stream.Stream;
-
-import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 
-import modelo.Estudiante;
+import ui_vm.NotasUsuarioViewModel;
 import ui_vm.UsuarioViewModel;
 
-public class NotasUsuarioWindow extends Dialog<UsuarioViewModel> {
-	static UsuarioViewModel model = new UsuarioViewModel();
-	public NotasUsuarioWindow(LectorNotasWindow owner, modelo.Estudiante estudiante) {
+public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
+	static NotasUsuarioViewModel model = new NotasUsuarioViewModel();
+
+	public NotasUsuarioWindow(WindowOwner owner) {
 		super(owner, model);
 	}
 
-	
-
 	@Override
 	protected void createFormPanel(Panel panel) {
-		Panel form = new Panel(panel);
-		form.setLayout(new ColumnLayout(2));
-		this.setTitle("Bienvenidos");
-		
-		
 		
 	}
 

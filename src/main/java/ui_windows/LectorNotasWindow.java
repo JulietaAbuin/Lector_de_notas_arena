@@ -26,7 +26,7 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 		Panel form = new Panel(panel);
 		form.setLayout(new ColumnLayout(2));
 		new Label(form).setText("Alumno");
-		new TextBox(form).setWidth(70).bindValueToProperty("nombreIngresado");
+		new TextBox(form).setWidth(140).bindValueToProperty("nombreIngresado");
 		
 		new Label(form).setText("Legajo");
 		new NumericField(form).setWidth(70).bindValueToProperty("legajoIngresado");
@@ -42,7 +42,7 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 		
 		if(RepoEstudiantes.getInstance().contieneA(owner.getNombreIngresado(),owner.getLegajoIngresado())){
 			this.accept();
-			Dialog<?> dialog = new NotasUsuarioWindow(this,RepoEstudiantes.getInstance().obtener(owner.getNombreIngresado()));
+			Dialog<?> dialog = new UsuarioWindow(this,RepoEstudiantes.getInstance().obtener(owner.getNombreIngresado()));
 			dialog.open();
 			dialog.onAccept(() -> {});
 	

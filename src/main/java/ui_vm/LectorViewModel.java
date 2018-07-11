@@ -35,6 +35,7 @@ public class LectorViewModel {
 		this.legajoIngresado = legajoIngresado;
 	}
 	
+	
 
 }
 

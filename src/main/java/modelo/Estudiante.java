@@ -5,6 +5,20 @@ import java.util.List;
 
 public class Estudiante {
 	public String nombre;
+	public String apellido;
+	public String usuariogit;
+	public int legajo;
+	public List<Asignacion> tareasAsignadas = new ArrayList<Asignacion>();
+	
+	
+	public Estudiante(String nombre, String apellido, int legajo, String usuariogit) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.legajo = legajo;
+		this.usuariogit = usuariogit;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -23,12 +37,7 @@ public class Estudiante {
 	public void setTareasAsignadas(List<Asignacion> tareasAsignadas) {
 		this.tareasAsignadas = tareasAsignadas;
 	}
-	public int legajo;
-	public List<Asignacion> tareasAsignadas = new ArrayList<Asignacion>();
-	public Estudiante(String string, int i) {
-		nombre = string;
-		legajo = i;
-	}
+	
 	public void agregarAsignacion(Asignacion asig) {
 		tareasAsignadas.add(asig);
 		
@@ -39,5 +48,17 @@ public class Estudiante {
 	}
 	public boolean tieneNombreIgual(String nombreIngresado) {
 		return this.nombre.equals(nombreIngresado);
+	}
+	public String getUsuariogit() {
+		return usuariogit;
+	}
+	public void setUsuariogit(String usuariogit) {
+		this.usuariogit = usuariogit;
 	} 
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 }
