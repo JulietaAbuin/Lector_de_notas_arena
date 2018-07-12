@@ -29,7 +29,7 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 		new TextBox(form).setWidth(140).bindValueToProperty("nombreIngresado");
 		
 		new Label(form).setText("Legajo");
-		new NumericField(form).setWidth(70).bindValueToProperty("legajoIngresado");
+		new NumericField(form).setWidth(140).bindValueToProperty("legajoIngresado");
 		
 		this.setTitle("Lector de notas");
 	}

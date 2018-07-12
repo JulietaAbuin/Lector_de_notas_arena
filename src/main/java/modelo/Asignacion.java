@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Asignacion {
-	private Tarea tarea;
-	public List<Float> notas = new ArrayList<Float>();
-	public Asignacion(Tarea tarea) {
+	public Tarea tarea;
+	public List<Double> notas = new ArrayList<Double>();
+	public Asignacion(Tarea tarea,List<Double> lista) {
 		this.tarea = tarea;
+		this.notas = lista;
 	}
 	
 }
