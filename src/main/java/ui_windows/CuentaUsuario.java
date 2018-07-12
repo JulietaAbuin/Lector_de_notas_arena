@@ -22,25 +22,31 @@ public class CuentaUsuario extends Dialog<CuentaUsuarioViewModel> {
 		this.estudiante = estudiante;
 	}
 
+	
+	
 	@Override
 	protected void createFormPanel(Panel panel) {
+		model.setApellido(estudiante.apellido);
+		model.setLegajo(estudiante.legajo);
+		model.setUsuarioGit(estudiante.usuariogit);
+		model.setNombre(estudiante.nombre);
 		Panel form = new Panel(panel);
 		form.setLayout(new ColumnLayout(3));
 		new Label(form).setText("Nombre");
-		new Label(form).setText(estudiante.nombre);
+		new Label(form).setText("nombre");
 		new TextBox(form).setWidth(130).bindValueToProperty("nombreModificado");
 
 		new Label(form).setText("Apellido");
-		new Label(form).setText(estudiante.apellido);
+		new Label(form).bindValueToProperty("apellido");
 		new TextBox(form).setWidth(130).bindValueToProperty("apellidoModificado");
 		
 		new Label(form).setText("Legajo");
-		Integer legajo = estudiante.legajo;
+		Integer legajo = model.getLegajo();
 		new Label(form).setText(legajo.toString());
 		new NumericField(form).setWidth(130).bindValueToProperty("legajoModificado");
 		
 		new Label(form).setText("Usuario de github");
-		new Label(form).setText(estudiante.usuariogit);
+		new Label(form).bindValueToProperty("usuarioGit");
 		new TextBox(form).setWidth(130).bindValueToProperty("usuarioGitModificado");
 		
 		new Button(form).setCaption("Modificar").onClick(this::aplicarModificacion);
@@ -50,6 +56,7 @@ public class CuentaUsuario extends Dialog<CuentaUsuarioViewModel> {
 		
 	}
 	public void aplicarModificacion() {
+		this.accept();
 		model.aplicarModificacion(estudiante);
 	}
 

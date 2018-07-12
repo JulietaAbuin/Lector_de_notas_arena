@@ -41,7 +41,6 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 	public void confirmarEstudiante() {
 		
 		if(RepoEstudiantes.getInstance().contieneA(owner.getNombreIngresado(),owner.getLegajoIngresado())){
-			this.accept();
 			Dialog<?> dialog = new UsuarioWindow(this,RepoEstudiantes.getInstance().obtener(owner.getNombreIngresado()));
 			dialog.open();
 			dialog.onAccept(() -> {});
