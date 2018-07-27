@@ -9,7 +9,6 @@ import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 
-import javafx.scene.Parent;
 import modelo.RepoEstudiantes;
 import ui_vm.LectorViewModel;
 import ui_windows_usuario.UsuarioWindow;
