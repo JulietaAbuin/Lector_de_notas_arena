@@ -45,7 +45,6 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 			dialog.open();
 			dialog.onAccept(() -> {});
 	
+		}	
 	}
-
-}
 }

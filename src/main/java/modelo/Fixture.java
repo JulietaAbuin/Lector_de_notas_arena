@@ -16,7 +16,7 @@ public class Fixture {
 		Estudiante juanchi = new Estudiante("Juanchi","Fraga",123456,"JuanchiFraga");
 		Estudiante guido = new Estudiante ("Guido","Pavia",1594850,"Gpavia");
 		Estudiante enzo = new Estudiante("Enzo","Conejero",456781,"econejero");
-		Docente mabel = new Docente();
+		Docente mabel = new Docente("Mabel", 1234);
 	mabel.asignarTarea(asig2, julieta);	
 	mabel.asignarTarea(asignacion1, julieta);
 	mabel.asignarTarea(asignacion1, juanito);
