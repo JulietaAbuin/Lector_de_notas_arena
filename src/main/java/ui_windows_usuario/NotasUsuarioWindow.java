@@ -1,4 +1,4 @@
-package ui_windows;
+package ui_windows_usuario;
 
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
@@ -9,8 +9,8 @@ import org.uqbar.arena.windows.WindowOwner;
 
 import modelo.Asignacion;
 import modelo.Estudiante;
-import ui_vm.NotasUsuarioViewModel;
-import ui_vm.UsuarioViewModel;
+import ui_vm_alumno.NotasUsuarioViewModel;
+import ui_vm_alumno.UsuarioViewModel;
 
 public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 	static NotasUsuarioViewModel model = new NotasUsuarioViewModel();

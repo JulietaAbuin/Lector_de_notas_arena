@@ -12,6 +12,7 @@ import org.uqbar.arena.windows.WindowOwner;
 import javafx.scene.Parent;
 import modelo.RepoEstudiantes;
 import ui_vm.LectorViewModel;
+import ui_windows_usuario.UsuarioWindow;
 
 public class LectorNotasWindow extends Dialog<LectorViewModel>{
 	static LectorViewModel owner = new LectorViewModel();

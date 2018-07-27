@@ -1,4 +1,4 @@
-package ui_vm;
+package ui_vm_alumno;
 
 import org.uqbar.commons.utils.Observable;
 

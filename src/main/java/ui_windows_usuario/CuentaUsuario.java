@@ -1,4 +1,4 @@
-package ui_windows;
+package ui_windows_usuario;
 
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
@@ -10,7 +10,7 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 
 import modelo.Estudiante;
-import ui_vm.CuentaUsuarioViewModel;
+import ui_vm_alumno.CuentaUsuarioViewModel;
 
 public class CuentaUsuario extends Dialog<CuentaUsuarioViewModel> {
 	public static CuentaUsuarioViewModel model = new CuentaUsuarioViewModel();

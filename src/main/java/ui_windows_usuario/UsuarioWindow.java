@@ -1,4 +1,4 @@
-package ui_windows;
+package ui_windows_usuario;
 
 import java.util.stream.Stream;
 
@@ -10,7 +10,8 @@ import org.uqbar.arena.windows.WindowOwner;
 
 import modelo.Estudiante;
 import modelo.RepoEstudiantes;
-import ui_vm.UsuarioViewModel;
+import ui_vm_alumno.UsuarioViewModel;
+import ui_windows.LectorNotasWindow;
 
 public class UsuarioWindow extends Dialog<UsuarioViewModel> {
 	static UsuarioViewModel model = new UsuarioViewModel();

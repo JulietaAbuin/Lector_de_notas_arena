@@ -1,5 +1,4 @@
 package modelo;
-
 public abstract class Tarea {
 	public TipoDeCalificacion tipoDeCalificacion;
 	public String nombreTarea;
