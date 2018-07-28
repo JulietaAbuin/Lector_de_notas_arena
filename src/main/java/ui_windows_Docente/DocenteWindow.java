@@ -15,7 +15,7 @@ import ui_vm_docente.DocenteViewModel;
 import ui_windows_usuario.UsuarioWindow;
 
 public class DocenteWindow extends Dialog<DocenteViewModel>{
-
+	private Label mensajeError;
 	static DocenteViewModel viewModel = new DocenteViewModel();  
 	
 	public DocenteWindow(WindowOwner owner) {
@@ -27,10 +27,11 @@ public class DocenteWindow extends Dialog<DocenteViewModel>{
 		Panel form = new Panel(mainPanel);
 		form.setLayout(new ColumnLayout(1));
 		new Label(form).setText("Nombre");
-		new TextBox(form).setWidth(140).bindValueToProperty("nombreIngresado");
+		new TextBox(form).setWidth(140).bindValueToProperty("nombreDocente");
 		new Label(form).setText("Legajo");
-		new NumericField(form).setWidth(140).bindValueToProperty("legajoIngresado");
+		new NumericField(form).setWidth(140).bindValueToProperty("legajoDocente");
 		this.setTitle("Lector de notas");
+		this.mensajeError = new Label(form) ;
 	}
 	
 	@Override
@@ -43,6 +44,8 @@ public class DocenteWindow extends Dialog<DocenteViewModel>{
 			Dialog<?> dialog = new CuentaDocenteWindow(this, RepoDocentes.getInstance().getDocentePorLegajo(viewModel.getLegajoDocente()));
 			dialog.open();
 			dialog.onAccept(() -> {});
+		}else {
+			this.mensajeError.setText("Legajo no encontrado");
 		}
 	}
 }

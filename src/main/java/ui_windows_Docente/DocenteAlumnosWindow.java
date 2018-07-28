@@ -29,7 +29,7 @@ public class DocenteAlumnosWindow extends Dialog<DocenteAlumnosViewModel> {
 	
 	@Override
 	protected void addActions(Panel actions) {
-		new Button(actions).setCaption("Profesor").onClick(this::logProfesor);
+		new Button(actions).setCaption("Docente").onClick(this::logProfesor);
 		new Button(actions).setCaption("Alumno").onClick(this::logAlumno);
 	}
 
@@ -40,7 +40,7 @@ public class DocenteAlumnosWindow extends Dialog<DocenteAlumnosViewModel> {
 		
 	}
 	
-	private void logProfesor() {
+	private void logProfesor(){
 		Dialog<?> dialog = new DocenteWindow(this);
 		dialog.open();
 		dialog.onAccept(() -> {});	

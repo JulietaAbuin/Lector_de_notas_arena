@@ -32,7 +32,7 @@ public class RepoDocentes {
 	}
 
 	public boolean contieneA(int legajo) {
-			return docentes.stream().anyMatch(e -> e.hashCode() == legajo);
+		return docentes.stream().anyMatch(e -> e.hashCode() == legajo);
 	}
 
 }
