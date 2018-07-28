@@ -10,7 +10,7 @@ private List<Double> notasNumerica = new ArrayList<Double>();
 	return notasNumerica;
 }
 
-	public NotaNumerica(Estudiante alumno,List<Double> notasNumerica) {
+	public NotaNumerica(Estudiante alumno, List<Double> notasNumerica) {
 		super(alumno);
 		this.notasNumerica = notasNumerica;
 	}

@@ -28,7 +28,7 @@ public class Asignacion {
 	}
 
 	public boolean existeTareaNumerica(Tarea tareaNueva) {
-		return tareasNumericas.stream().anyMatch(tarea -> tarea.esLaTarea(tareaNueva.getNombre())) ;
+		return tareasNumericas.stream().anyMatch(tarea -> tarea.esLaTarea(tareaNueva.getNombre()));
 	}
 
 	public boolean existeTareaConceptual(Tarea tareaNueva) {
@@ -49,17 +49,11 @@ public class Asignacion {
 	}
 
 	private void agregarEstudianteATareaNumerica(Estudiante estudiante, Tarea tareaNueva) {
-		if (!existeTareaNumerica(tareaNueva)) {
-			tareasNumericas.add(new TareaNumerica(tareaNueva.getNombre(), new ArrayList<NotaNumerica>()));
-		}
 		tareasNumericas.stream().filter(tarea -> tarea.esLaTarea(tareaNueva.getNombre())).collect(Collectors.toList())
 				.get(0).agregarAlumno(estudiante);
 	}
 
 	private void agregarEstudianteATareaConceptual(Estudiante estudiante, Tarea tareaNueva) {
-		if (!existeTareaNumerica(tareaNueva)) {
-			tareasConceptuales.add(new TareaConceptual(tareaNueva.getNombre(), new ArrayList<NotaConceptual>()));
-		}
 		tareasConceptuales.stream().filter(tarea -> tarea.esLaTarea(tareaNueva.getNombre()))
 				.collect(Collectors.toList()).get(0).agregarAlumno(estudiante);
 	}
@@ -68,13 +62,22 @@ public class Asignacion {
 		return tareasNumericas.stream().anyMatch(tarea -> tarea.estaElAlumno(estudiante))
 				|| tareasConceptuales.stream().anyMatch(tarea -> tarea.estaElAlumno(estudiante));
 	}
-	
+
 	public List<TareaNumerica> filtrarTareasNumericasXAlumno(Estudiante estudiante) {
 		return tareasNumericas.stream().filter(tarea -> tarea.estaElAlumno(estudiante)).collect(Collectors.toList());
 	}
-	
+
 	public List<TareaConceptual> filtrarTareasConceptualesXAlumno(Estudiante estudiante) {
 		return tareasConceptuales.stream().filter(tarea -> tarea.estaElAlumno(estudiante)).collect(Collectors.toList());
+	}
+
+	public void agregarTareaNumerica(TareaNumerica tarea) {
+		tareasNumericas.add(tarea);
+	}
+
+	public void agregarTareaConceptual(TareaConceptual tarea) {
+		tareasConceptuales.add(tarea);
+		
 	}
 
 }

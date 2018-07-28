@@ -50,5 +50,13 @@ public class Docente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+	public void agregarTareaNumerica(Asignacion asig, TareaNumerica tarea) {
+		asig.agregarTareaNumerica(tarea);
+	}
+	
+	public void agregarTareaConceptual(Asignacion asig, TareaConceptual tarea) {
+		asig.agregarTareaConceptual(tarea);
+	}
 	
 }
