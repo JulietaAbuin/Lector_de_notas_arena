@@ -32,7 +32,7 @@ private List<NotaConceptual> notasConceptualesXAlumnno = new ArrayList<NotaConce
 	
 	public void agregarAlumno(Estudiante estudiante) {
 		if(!estaElAlumno(estudiante)) {
-			new NotaConceptual(estudiante, new ArrayList<String>());
+			notasConceptualesXAlumnno.add(new NotaConceptual(estudiante, new ArrayList<String>()));
 		}
 	}
 	

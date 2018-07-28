@@ -31,7 +31,7 @@ public class TareaNumerica extends Tarea {
 	
 	public void agregarAlumno(Estudiante estudiante) {
 		if(!estaElAlumno(estudiante)) {
-			new NotaNumerica(estudiante, new ArrayList<Double>());
+			notasNumericasXAlumnno.add(new NotaNumerica(estudiante, new ArrayList<Double>()));
 		}
 	}
 	

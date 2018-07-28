@@ -28,7 +28,7 @@ public class Asignacion {
 	}
 
 	public boolean existeTareaNumerica(Tarea tareaNueva) {
-		return tareasNumericas.stream().anyMatch(tarea -> tarea.esLaTarea(tareaNueva.getNombre()));
+		return tareasNumericas.stream().anyMatch(tarea -> tarea.esLaTarea(tareaNueva.getNombre())) ;
 	}
 
 	public boolean existeTareaConceptual(Tarea tareaNueva) {

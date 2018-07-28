@@ -18,6 +18,10 @@ public class Fixture {
 		mabel.asignarTarea(Ingles, julieta, ParcialIngles);
 		mabel.asignarTarea(Economia, julieta, ParcialEconomia);
 		mabel.asignarTarea(Economia, juanito, ParcialEconomia);
+		ParcialIngles.agregarNota(julieta, 4.0);
+		ParcialIngles.agregarNota(julieta, 5.0);
+		ParcialIngles.agregarNota(julieta, 6.0);
+		ParcialEconomia.agregarNota(julieta, 7.0);
 		RepoEstudiantes.getInstance().agregar(juanito);
 		RepoEstudiantes.getInstance().agregar(julieta);
 		RepoEstudiantes.getInstance().agregar(juanchi);
