@@ -10,8 +10,8 @@ public class Docente {
 		this.legajo = legajo;
 	}
 
-	public void asignarTarea(Asignacion asig,Estudiante estudiante) {
-		estudiante.agregarAsignacion(asig);
+	public void asignarTarea(Asignacion asig , Estudiante estudiante, Tarea tarea) {
+		asig.agregarEstudianteATarea(estudiante,tarea);
 	}
 	
 	@Override

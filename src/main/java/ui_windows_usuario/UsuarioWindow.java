@@ -27,7 +27,7 @@ public class UsuarioWindow extends Dialog<UsuarioViewModel> {
 	protected void createFormPanel(Panel panel) {
 		Panel form = new Panel(panel);
 		form.setLayout(new ColumnLayout(2));
-		this.setTitle(estudiante.nombre +" "+ estudiante.apellido);
+		this.setTitle(estudiante.getNombre() +" "+ estudiante.getApellido());
 		new Button(form).setCaption("Ver Notas").onClick(this::irANotas);
 		new Button(form).setCaption("Actualizar cuenta").onClick(this::irACuenta);
 		

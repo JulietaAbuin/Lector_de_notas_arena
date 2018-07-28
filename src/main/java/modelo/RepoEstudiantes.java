@@ -1,11 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
-
-import ui_vm_alumno.UsuarioViewModel;
 
 
 public class RepoEstudiantes {
