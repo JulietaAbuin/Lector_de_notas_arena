@@ -2,12 +2,19 @@ package modelo;
 
 public class Docente {
 	private String nombre;
+
+	private String apellido;
 	private int legajo;
 
-	public Docente(String nombre, int legajo) {
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Docente(String nombre, String apellido,int legajo) {
 		super();
 		this.nombre = nombre;
 		this.legajo = legajo;
+		this.apellido = apellido;
 	}
 
 	public void asignarTarea(Asignacion asig , Estudiante estudiante, Tarea tarea) {
@@ -34,6 +41,14 @@ public class Docente {
 
 	public int getLegajo() {
 		return legajo;
+	}
+	
+	public String getApellido() {
+		return apellido;
+	}
+	
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 	
 }

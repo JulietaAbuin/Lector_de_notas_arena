@@ -8,9 +8,9 @@ import modelo.RepoDocentes;
 
 @Observable
 public class DocenteViewModel {
-	public String nombreDocente;
-	public int legajoDocente;
-	public List<Docente> docentes;
+	private String nombreDocente;
+	private int legajoDocente;
+	private List<Docente> docentes;
 	
 	public List<Docente> getDocentes() {
 		return docentes;
