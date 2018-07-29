@@ -29,7 +29,7 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 	protected void createFormPanel(Panel panel) {
 		this.panel = panel;
 		Panel form = new Panel(panel);
-		form.setLayout(new ColumnLayout(5));
+		form.setLayout(new ColumnLayout(4));
 		this.setTitle("Notas");
 
 		RepoAsignaciones.getInstance().filtrarPorAlumno(estudiante)
@@ -48,11 +48,15 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 
 	private void crearTareaNumerica(TareaNumerica tarea, Estudiante estudiante, Panel form) {
 		Integer numero;
+		int primera_iteracion = 1;
 		for (int i = 0; i <  tarea.notasXAlumno(estudiante).getNotasNumerica().size(); i++) {
 			numero=i;
+			if(primera_iteracion==0) {
+				new Label(form).setText("").setWidth(120);
+			}
 			new Label(form).setText( "instancia Nº" + numero.toString() ).setWidth(120);
 			new Label(form).setText( tarea.notasXAlumno(estudiante).getNotasNumerica().get(i).toString()).setWidth(120);
-			
+			primera_iteracion=0;
 			if ( tarea.notasXAlumno(estudiante).getNotasNumerica().get(i) >= 6.0) {
 				aprobacion = "APROBADO";
 			} else {

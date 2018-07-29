@@ -3,8 +3,11 @@ package ui_vm_docente;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.TextBox;
+import org.uqbar.commons.utils.Observable;
 
 import modelo.Docente;
+
+@Observable
 
 public class ModificarDocenteModelView {
 	private Docente docente;

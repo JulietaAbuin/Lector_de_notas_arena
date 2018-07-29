@@ -25,7 +25,7 @@ public class CuentaDocenteWindow extends Dialog<CuentaDocenteViewModel> {
 		new Button(form).setCaption("Actualizar cuenta").onClick(this::actualizarCuenta);
 		new Button(form).setCaption("Asignaciones y Notas").onClick(this::Asignaciones);
 		new Button(form).setCaption("Volver").onClick(this::accept);
-		this.setTitle("MenudDocente");
+		this.setTitle("Menu Docente");
 
 	}
 	

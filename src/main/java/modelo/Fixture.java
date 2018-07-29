@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Fixture {
 	public static void initialize() {
+		Integer uno = new Integer(1);
+		Integer dos = new Integer(2);
 		TareaNumerica ParcialIngles = new TareaNumerica("Parcial Ingles", new ArrayList<NotaNumerica>());
 		TareaNumerica ParcialEconomia = new TareaNumerica("Parcial Economia", new ArrayList<NotaNumerica>());
 		Asignacion Economia = new Asignacion("Economia", new ArrayList<TareaNumerica>(),
