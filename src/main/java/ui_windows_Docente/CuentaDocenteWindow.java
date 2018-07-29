@@ -22,23 +22,21 @@ public class CuentaDocenteWindow extends Dialog<CuentaDocenteViewModel> {
 		Panel form = new Panel(mainPanel);
 		form.setLayout(new ColumnLayout(1));
 		new Label(form).setText("Profesor/a " + this.getModelObject().getDocente().getNombre() );
-		/*Supongo que hay mas cosas de lo que hace guido*/
 		new Button(form).setCaption("Actualizar cuenta").onClick(this::actualizarCuenta);
-		new Button(form).setCaption("Cargar Notas").onClick(this::cargarNotas);
+		new Button(form).setCaption("Asignaciones y Notas").onClick(this::Asignaciones);
+		new Button(form).setCaption("Volver").onClick(this::accept);
 		this.setTitle("MenudDocente");
 
 	}
 	
 	private void actualizarCuenta() {
-//		this.accept();
 		Dialog<?> dialog = new ModificarDocenteWindow(this, this.getModelObject().getDocente());
 		dialog.open();
 		dialog.onAccept(() -> {});
 	}
 	
-	private void cargarNotas() {
-//		this.accept();
-		Dialog<?> dialog = new ModificarDocenteWindow(this, this.getModelObject().getDocente());
+	private void Asignaciones() {
+		Dialog<?> dialog = new AsignacionesWindow(this, this.getModelObject().getDocente());
 		dialog.open();
 		dialog.onAccept(() -> {});
 	}
