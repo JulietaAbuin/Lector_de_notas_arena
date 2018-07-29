@@ -31,8 +31,8 @@ public class RepoDocentes {
 		return docentes;
 	}
 
-	public boolean contieneA(int legajo) {
-		return docentes.stream().anyMatch(e -> e.hashCode() == legajo);
+	public boolean contieneA(int legajo, String nombre) {
+		return docentes.stream().anyMatch(e -> (e.hashCode() == legajo) && e.getNombre().equals(nombre));
 	}
 
 }

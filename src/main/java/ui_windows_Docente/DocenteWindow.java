@@ -40,7 +40,7 @@ public class DocenteWindow extends Dialog<DocenteViewModel>{
 	}
 	
 	public void confirmarDocente() {
-		if(RepoDocentes.getInstance().contieneA(viewModel.getLegajoDocente())) {
+		if(RepoDocentes.getInstance().contieneA(viewModel.getLegajoDocente(), viewModel.getNombreDocente())) {
 			Dialog<?> dialog = new CuentaDocenteWindow(this, RepoDocentes.getInstance().getDocentePorLegajo(viewModel.getLegajoDocente()));
 			dialog.open();
 			dialog.onAccept(() -> {});
