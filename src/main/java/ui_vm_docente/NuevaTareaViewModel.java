@@ -7,11 +7,13 @@ import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.commons.utils.Observable;
-import org.uqbar.lacar.ui.model.Action;
-
 import modelo.Docente;
+import modelo.Estudiante;
+import modelo.NotaConceptual;
 import modelo.NotaNumerica;
+import modelo.RepoEstudiantes;
 import modelo.Tarea;
+import modelo.TareaConceptual;
 import modelo.TareaNumerica;
 
 @Observable
@@ -21,7 +23,9 @@ public class NuevaTareaViewModel {
 	private List<Tareas> tiposDeTarea = new ArrayList<Tareas>();
 	private Tareas tipoDeTarea;
 	private List<Double> notasNumericas = new ArrayList<Double>();
+	private List<String> notasConceptuales = new ArrayList<String>();
 	private String nota1,nota2,nota3,nota4;
+	private int legajoEstudiante;
 	public NuevaTareaViewModel() {
 		this.docente=docente;
 		tiposDeTarea.add(Tareas.CONCEPTUAL);
@@ -101,12 +105,37 @@ public class NuevaTareaViewModel {
 			notasNumericas.add(Double.parseDouble(nota3));
 			notasNumericas.add(Double.parseDouble(nota4));
 			List<NotaNumerica> notas = new ArrayList<NotaNumerica>();
-			//Sacar el parametro del estudiante para poder crear una nota numerica?
-			//se lo asigna al estudiante recien en la asignacion?
-			notas.add(new NotaNumerica(null, notasNumericas));
+			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
+			notas.add(new NotaNumerica(estud, notasNumericas));
 		TareaNumerica tarea=new TareaNumerica(nombreTarea,notas);
 		//hacer repo de tareas y agregarla al repo para despues agregarla a la 
 		//asignacion ??
 	}
+		if(tipoDeTarea.equals(Tareas.CONCEPTUAL)) {
+			notasConceptuales.add(nota1);
+			notasConceptuales.add(nota2);
+			notasConceptuales.add(nota3);
+			notasConceptuales.add(nota4);
+			List<NotaConceptual> notas = new ArrayList<NotaConceptual>();
+			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
+			notas.add(new NotaConceptual(estud, notasConceptuales));
+		TareaConceptual tarea=new TareaConceptual(nombreTarea,notas);
+	}	
 }
+
+	public int getLegajoEstudiante() {
+		return legajoEstudiante;
+	}
+
+	public void setLegajoEstudiante(int legajoEstudiante) {
+		this.legajoEstudiante = legajoEstudiante;
+	}
+
+	public List<String> getNotasConceptuales() {
+		return notasConceptuales;
+	}
+
+	public void setNotasConceptuales(List<String> notasConceptuales) {
+		this.notasConceptuales = notasConceptuales;
+	}
 }

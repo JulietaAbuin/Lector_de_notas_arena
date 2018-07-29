@@ -41,6 +41,10 @@ public class NuevaTareaWindow extends Dialog<NuevaTareaViewModel> {
 		selectorTarea.bindValueToProperty("tipoDeTarea");
 		selectorTarea.bindItemsToProperty("tiposDeTarea");
 		//selectorTarea.onSelection(this::agregarBox);
+		
+		new Label(form).setText("Legajo del estudiante").setWidth(220);
+		new NumericField(form).setWidth(220).bindValueToProperty("legajoEstudiante");
+		
 		new Label(form).setText("Nota 1").setWidth(220);
 		new TextBox(form).setWidth(120).bindValueToProperty("nota1");
 

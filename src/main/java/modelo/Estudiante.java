@@ -46,5 +46,8 @@ public class Estudiante {
 	public boolean tieneNombreIgual(String nombreIngresado) {
 		return this.nombre.equals(nombreIngresado);
 	}
+	public boolean tieneLegajoIgual(int legajo2) {
+		return legajo2 == this.legajo;
+	}
 
 }

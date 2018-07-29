@@ -36,5 +36,14 @@ public class RepoEstudiantes {
 		
 	}return est;
 	}
+	public Estudiante obtenerPorLegajo(int legajo) {
+		Estudiante est = null;
+		for(int index=0;index<estudiantes.size();index++) {
+			if( estudiantes.get(index).tieneLegajoIgual(legajo)) {
+				 est = estudiantes.get(index);
+			}
+	}
+		return est;
+}
 }
 
