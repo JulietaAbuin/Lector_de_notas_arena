@@ -33,21 +33,32 @@ public class NuevaTareaWindow extends Dialog<NuevaTareaViewModel> {
 	protected void createFormPanel(Panel mainPanel) {
 	     form = new Panel(mainPanel);
 		form.setLayout(new ColumnLayout(2));
-		new Label(form).setText("Nombre").setWidth(120);
+		new Label(form).setText("Nombre").setWidth(220);
 		new TextBox(form).bindValueToProperty("nombreTarea");
 		
 		new Label(form).setText("Tipo de tarea").setWidth(220);
 		Selector<Tareas> selectorTarea=new Selector<Tareas>(form).allowNull(true);
 		selectorTarea.bindValueToProperty("tipoDeTarea");
 		selectorTarea.bindItemsToProperty("tiposDeTarea");
-		selectorTarea.onSelection(this::agregarBox);
+		//selectorTarea.onSelection(this::agregarBox);
+		new Label(form).setText("Nota 1").setWidth(220);
+		new TextBox(form).setWidth(120).bindValueToProperty("nota1");
+
+		new Label(form).setText("Nota 2").setWidth(220);
+		new TextBox(form).setWidth(120).bindValueToProperty("nota2");
 		
-		new Button(form).setCaption("Agregar Nota").onClick(this::agregarBox);
+		new Label(form).setText("Nota 3").setWidth(220);
+		new TextBox(form).setWidth(120).bindValueToProperty("nota3");
+		
+		new Label(form).setText("Nota 4").setWidth(220);
+		new TextBox(form).setWidth(120).bindValueToProperty("nota4");
+		
+		new Button(form).setCaption("Crear Tarea").onClick(this::crearTarea);
 		new Button(form).setCaption("Volver").onClick(this::accept);
 		
 		
 	}
-	public void agregarBox() {
-			new NumericField(form).setWidth(120);
+	public void crearTarea() {
+		model.crearTarea();
 	}
 }
