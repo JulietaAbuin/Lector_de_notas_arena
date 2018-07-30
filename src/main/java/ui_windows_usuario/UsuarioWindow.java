@@ -35,14 +35,12 @@ public class UsuarioWindow extends Dialog<UsuarioViewModel> {
 		
 	}
 	public void irANotas() {
-	this.accept();
 	Dialog<?> dialog = new NotasUsuarioWindow(this,estudiante);
 	dialog.open();
 	dialog.onAccept(() -> {});
 	}
 	
 	public void irACuenta() {
-		this.accept();
 		Dialog<?> dialog = new CuentaUsuario(this,estudiante);
 		dialog.open();
 		dialog.onAccept(() -> {});
