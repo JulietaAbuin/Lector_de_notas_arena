@@ -32,7 +32,13 @@ public class RepoAsignaciones {
 	}
 	
 	public Asignacion filtrarPorNombre(String asignacion){
-		return asignaciones.stream().filter(asig -> asig.esLaAsignacion(asignacion)).collect(Collectors.toList()).get(0);
+		Asignacion asig = null;
+		for(int index=0;index<asignaciones.size();index++) {
+		if( asignaciones.get(index).tieneNombreIgual(asignacion)) {
+			 asig = asignaciones.get(index);
+		}
+		
+	}return asig;
 	}
 
 }

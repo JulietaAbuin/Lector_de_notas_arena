@@ -80,4 +80,8 @@ public class Asignacion {
 		
 	}
 
+	public boolean tieneNombreIgual(String asignacion) {
+		return this.nombre.equals(asignacion);
+	}
+
 }
