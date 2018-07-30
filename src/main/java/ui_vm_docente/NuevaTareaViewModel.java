@@ -2,23 +2,26 @@ package ui_vm_docente;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.commons.utils.Observable;
+
+import modelo.Asignacion;
 import modelo.Docente;
 import modelo.Estudiante;
 import modelo.NotaConceptual;
 import modelo.NotaNumerica;
+import modelo.RepoAsignaciones;
 import modelo.RepoEstudiantes;
-import modelo.Tarea;
 import modelo.TareaConceptual;
 import modelo.TareaNumerica;
 
 @Observable
 public class NuevaTareaViewModel {
-	Docente docente;
+	private Docente docente;
 	private String nombreTarea;
 	private List<Tareas> tiposDeTarea = new ArrayList<Tareas>();
 	private Tareas tipoDeTarea;
@@ -26,10 +29,32 @@ public class NuevaTareaViewModel {
 	private List<String> notasConceptuales = new ArrayList<String>();
 	private String nota1,nota2,nota3,nota4;
 	private int legajoEstudiante;
-	public NuevaTareaViewModel() {
+	private List<String> asignaciones = new ArrayList<String>();
+	private String asignacion;
+	private Asignacion asignacionPosta;
+	
+	public List<String> getAsignaciones() {
+		return asignaciones;
+	}
+
+	public String getAsignacion() {
+		return asignacion;
+	}
+
+	public void setAsignaciones(List<String> asignaciones) {
+		this.asignaciones = asignaciones;
+	}
+
+	public void setAsignacion(String asignacion) {
+		this.asignacion = asignacion;
+	}
+
+	
+	public NuevaTareaViewModel(Docente docente) {
 		this.docente=docente;
 		tiposDeTarea.add(Tareas.CONCEPTUAL);
 		tiposDeTarea.add(Tareas.NUMERICA);
+		asignaciones.addAll(RepoAsignaciones.getInstance().all().stream().map(asig->asig.toString()).collect(Collectors.toList()));
 	}
 
 	public String getNota1() {
@@ -108,8 +133,7 @@ public class NuevaTareaViewModel {
 			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
 			notas.add(new NotaNumerica(estud, notasNumericas));
 		TareaNumerica tarea=new TareaNumerica(nombreTarea,notas);
-		//hacer repo de tareas y agregarla al repo para despues agregarla a la 
-		//asignacion ??
+		docente.agregarTareaNumerica(asignacionPosta, tarea);
 	}
 		if(tipoDeTarea.equals(Tareas.CONCEPTUAL)) {
 			notasConceptuales.add(nota1);
@@ -120,6 +144,7 @@ public class NuevaTareaViewModel {
 			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
 			notas.add(new NotaConceptual(estud, notasConceptuales));
 		TareaConceptual tarea=new TareaConceptual(nombreTarea,notas);
+		docente.agregarTareaConceptual(asignacionPosta, tarea);
 	}	
 }
 

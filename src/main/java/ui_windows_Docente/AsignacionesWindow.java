@@ -24,7 +24,6 @@ public class AsignacionesWindow extends Dialog<AsignacionesViewModel> {
 		form.setLayout(new ColumnLayout(1));	
 		new Button(form).setCaption("Nueva Asignacion").onClick(this::nuevaAsignacion);
 		new Button(form).setCaption("Nueva Tarea").onClick(this::nuevaTarea);
-		new Button(form).setCaption("Subir Nota").onClick(this::accept);
 		new Button(form).setCaption("Volver").onClick(this::accept);
 	}
 
@@ -40,9 +39,5 @@ public class AsignacionesWindow extends Dialog<AsignacionesViewModel> {
 		dialog.onAccept(() -> {});
 	}
 	
-	private void SubirNota() {
-		Dialog<?> dialog = new SubirNotaWindow(this, this.getModelObject().getDocente());
-		dialog.open();
-		dialog.onAccept(() -> {});
-	}
+	
 }

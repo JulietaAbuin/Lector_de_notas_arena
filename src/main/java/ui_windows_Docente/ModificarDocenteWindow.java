@@ -36,7 +36,7 @@ public class ModificarDocenteWindow extends Dialog<ModificarDocenteModelView> {
 	}
 
 	private void aplicarModificacion() {
-		this.accept();
 		this.getModelObject().aplicarModificacion();
+		this.accept();
 	}
 }

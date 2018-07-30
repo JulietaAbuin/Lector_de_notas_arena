@@ -9,32 +9,30 @@ import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.lacar.ui.model.Action;
 
 import modelo.Docente;
-import modelo.Tarea;
-import ui_vm_alumno.NotasUsuarioViewModel;
-import ui_vm_docente.CuentaDocenteViewModel;
-import ui_vm_docente.NuevaAsignacionViewModel;
 import ui_vm_docente.NuevaTareaViewModel;
 import ui_vm_docente.Tareas;
 
 
 public class NuevaTareaWindow extends Dialog<NuevaTareaViewModel> {
-	static NuevaTareaViewModel model=new NuevaTareaViewModel();
-	private Docente docente;
-	Panel form;
 	public NuevaTareaWindow(WindowOwner owner, Docente docente) { 
-		super(owner, model);
-		this.docente = docente;
+		super(owner, new NuevaTareaViewModel(docente));
 	}
 
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
-	     form = new Panel(mainPanel);
+		Panel form = new Panel(mainPanel);
 		form.setLayout(new ColumnLayout(2));
 		new Label(form).setText("Nombre").setWidth(220);
 		new TextBox(form).bindValueToProperty("nombreTarea");
+		
+		new Label(form).setText("Asignatura").setWidth(220);
+		
+		Selector<String> selectorAsignatura = new Selector<String>(form).allowNull(true);
+		
+		selectorAsignatura.bindItemsToProperty("asignaciones");
+		selectorAsignatura.bindValueToProperty("asignacion");
 		
 		new Label(form).setText("Tipo de tarea").setWidth(220);
 		Selector<Tareas> selectorTarea=new Selector<Tareas>(form).allowNull(true);
@@ -63,6 +61,7 @@ public class NuevaTareaWindow extends Dialog<NuevaTareaViewModel> {
 		
 	}
 	public void crearTarea() {
-		model.crearTarea();
+		this.getModelObject().crearTarea();
+		this.accept();
 	}
 }
