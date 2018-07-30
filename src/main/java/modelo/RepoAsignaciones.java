@@ -26,19 +26,20 @@ public class RepoAsignaciones {
 	public boolean contieneA(Asignacion materia) {
 		return asignaciones.stream().anyMatch(e -> e.esLaAsignacion(materia.getNombre()));
 	}
-	
-	public List<Asignacion> filtrarPorAlumno(Estudiante estudiante){
+
+	public List<Asignacion> filtrarPorAlumno(Estudiante estudiante) {
 		return asignaciones.stream().filter(asig -> asig.tieneAlumno(estudiante)).collect(Collectors.toList());
 	}
-	
-	public Asignacion filtrarPorNombre(String asignacion){
+
+	public Asignacion filtrarPorNombre(String asignacion) {
 		Asignacion asig = null;
-		for(int index=0;index<asignaciones.size();index++) {
-		if( asignaciones.get(index).tieneNombreIgual(asignacion)) {
-			 asig = asignaciones.get(index);
+		for (int index = 0; index < asignaciones.size(); index++) {
+			if (asignaciones.get(index).tieneNombreIgual(asignacion)) {
+				asig = asignaciones.get(index);
+			}
+
 		}
-		
-	}return asig;
+		return asig;
 	}
 
 }

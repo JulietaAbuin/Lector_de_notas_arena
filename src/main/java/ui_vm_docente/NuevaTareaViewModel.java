@@ -125,26 +125,27 @@ public class NuevaTareaViewModel {
 
 	public void crearTarea() {
 		if(tipoDeTarea.equals(Tareas.NUMERICA)) {
-			if(nota1!=null)notasConceptuales.add(nota1);
-			if(nota2!=null)notasConceptuales.add(nota2);
-			if(nota3!=null)notasConceptuales.add(nota3);
-			if(nota4!=null)notasConceptuales.add(nota4);
-			List<NotaNumerica> notas = new ArrayList<NotaNumerica>();
-			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
-			notas.add(new NotaNumerica(estud, notasNumericas));
+		if(nota1!=null)notasNumericas.add(Double.parseDouble(nota1));
+		if(nota2!=null)notasNumericas.add(Double.parseDouble(nota1));
+		if(nota3!=null)notasNumericas.add(Double.parseDouble(nota1));
+		if(nota4!=null)notasNumericas.add(Double.parseDouble(nota1));
+		List<NotaNumerica> notas = new ArrayList<NotaNumerica>();
+		Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
+		notas.add(new NotaNumerica(estud, notasNumericas));
 		TareaNumerica tarea=new TareaNumerica(nombreTarea,notas);
-		asignacionPosta= (Asignacion) RepoAsignaciones.getInstance().filtrarPorNombre(asignacion);
+		asignacionPosta= RepoAsignaciones.getInstance().filtrarPorNombre(asignacion);
 		docente.agregarTareaNumerica(asignacionPosta, tarea);
 	}
 		if(tipoDeTarea.equals(Tareas.CONCEPTUAL)) {
-			if(nota1!=null)notasConceptuales.add(nota1);
-			if(nota2!=null)notasConceptuales.add(nota2);
-			if(nota3!=null)notasConceptuales.add(nota3);
-			if(nota4!=null)notasConceptuales.add(nota4);
-			List<NotaConceptual> notas = new ArrayList<NotaConceptual>();
-			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
-			notas.add(new NotaConceptual(estud, notasConceptuales));
+		if(nota1!=null)notasConceptuales.add(nota1);
+		if(nota2!=null)notasConceptuales.add(nota2);
+		if(nota3!=null)notasConceptuales.add(nota3);
+		if(nota4!=null)notasConceptuales.add(nota4);
+		List<NotaConceptual> notas = new ArrayList<NotaConceptual>();
+		Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
+		notas.add(new NotaConceptual(estud, notasConceptuales));
 		TareaConceptual tarea=new TareaConceptual(nombreTarea,notas);
+		asignacionPosta= RepoAsignaciones.getInstance().filtrarPorNombre(asignacion);
 		docente.agregarTareaConceptual(asignacionPosta, tarea);
 	}	
 }

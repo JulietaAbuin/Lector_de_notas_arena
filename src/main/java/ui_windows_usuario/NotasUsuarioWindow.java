@@ -11,6 +11,7 @@ import modelo.Asignacion;
 import modelo.Estudiante;
 import modelo.NotaNumerica;
 import modelo.RepoAsignaciones;
+import modelo.TareaConceptual;
 import modelo.TareaNumerica;
 import ui_vm_alumno.NotasUsuarioViewModel;
 
@@ -40,15 +41,25 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 	}
 
 	private void crearAsignacion(Asignacion asignacion, Estudiante estudiante, Panel form) {
+		new Label(form).setText("").setWidth(120);
+		new Label(form).setText("").setWidth(120);
+		new Label(form).setText("").setWidth(120);
+		new Label(form).setText("").setWidth(120);
 		new Label(form).setText(asignacion.getNombre()).setWidth(120);
+		new Label(form).setText("").setWidth(120);
+		new Label(form).setText("").setWidth(120);
+		new Label(form).setText("").setWidth(120);	
 
 		asignacion.filtrarTareasNumericasXAlumno(estudiante).forEach(esaTarea -> this.crearTareaNumerica(esaTarea, estudiante, form));
+		asignacion.filtrarTareasConceptualesXAlumno(estudiante).forEach(esaTarea -> this.crearTareaConceptual(esaTarea, estudiante, form));
 
 	}
 
 	private void crearTareaNumerica(TareaNumerica tarea, Estudiante estudiante, Panel form) {
+		new Label(form).setText(tarea.getNombre()).setWidth(120);
 		Integer numero;
 		int primera_iteracion = 1;
+		
 		for (int i = 0; i <  tarea.notasXAlumno(estudiante).getNotasNumerica().size(); i++) {
 			numero=i;
 			if(primera_iteracion==0) {
@@ -64,6 +75,32 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 			}
 			new Label(form).setText(aprobacion).setWidth(120);
 
+		}
+	}
+	
+	private void crearTareaConceptual(TareaConceptual tarea, Estudiante estudiante, Panel form) {
+		new Label(form).setText(tarea.getNombre()).setWidth(120);
+		Integer numero;
+		int primera_iteracion = 1;
+		for (int i = 0; i <  tarea.notasXAlumno(estudiante).getNotasConceptuales().size(); i++) {
+			numero=i;
+			if(primera_iteracion==0) {
+				new Label(form).setText("").setWidth(120);
+			}
+			new Label(form).setText( "instancia Nº" + numero.toString() ).setWidth(120);
+			new Label(form).setText( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).toString()).setWidth(120);
+			primera_iteracion=0;
+			if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B")) {
+				aprobacion = "APROBADO";
+			} else if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B-")) {
+				aprobacion = "APROBADO";
+			}else if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B+")) {
+				aprobacion = "APROBADO";
+			}
+			else {
+				aprobacion = "DESAPROBADO";
+			}
+			new Label(form).setText(aprobacion).setWidth(120);
 		}
 	}
 

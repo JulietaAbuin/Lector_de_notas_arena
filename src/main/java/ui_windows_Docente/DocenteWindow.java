@@ -32,6 +32,7 @@ public class DocenteWindow extends Dialog<DocenteViewModel>{
 		new NumericField(form).setWidth(140).bindValueToProperty("legajoDocente");
 		this.setTitle("Lector de notas");
 		this.mensajeError = new Label(form) ;
+		new Button(form).setCaption("Volver").onClick(this::accept);
 	}
 	
 	@Override

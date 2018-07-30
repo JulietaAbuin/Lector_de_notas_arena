@@ -30,6 +30,7 @@ public class UsuarioWindow extends Dialog<UsuarioViewModel> {
 		this.setTitle(estudiante.getNombre() +" "+ estudiante.getApellido());
 		new Button(form).setCaption("Ver Notas").onClick(this::irANotas);
 		new Button(form).setCaption("Actualizar cuenta").onClick(this::irACuenta);
+		new Button(form).setCaption("Volver").onClick(this::accept);
 		
 		
 	}
