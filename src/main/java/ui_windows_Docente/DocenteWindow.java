@@ -10,9 +10,7 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 
 import modelo.RepoDocentes;
-import modelo.RepoEstudiantes;
 import ui_vm_docente.DocenteViewModel;
-import ui_windows_usuario.UsuarioWindow;
 
 public class DocenteWindow extends Dialog<DocenteViewModel>{
 	private Label mensajeError;

@@ -135,6 +135,7 @@ public class NuevaTareaViewModel {
 		TareaNumerica tarea=new TareaNumerica(nombreTarea,notas);
 		asignacionPosta= RepoAsignaciones.getInstance().filtrarPorNombre(asignacion);
 		docente.agregarTareaNumerica(asignacionPosta, tarea);
+		docente.modificarAlumno(estud);
 	}
 		if(tipoDeTarea.equals(Tareas.CONCEPTUAL)) {
 		if(nota1!=null)notasConceptuales.add(nota1);
@@ -147,6 +148,8 @@ public class NuevaTareaViewModel {
 		TareaConceptual tarea=new TareaConceptual(nombreTarea,notas);
 		asignacionPosta= RepoAsignaciones.getInstance().filtrarPorNombre(asignacion);
 		docente.agregarTareaConceptual(asignacionPosta, tarea);
+		docente.modificarAlumno(estud);
+
 	}	
 }
 

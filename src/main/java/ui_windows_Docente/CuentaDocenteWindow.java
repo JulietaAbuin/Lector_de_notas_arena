@@ -24,11 +24,16 @@ public class CuentaDocenteWindow extends Dialog<CuentaDocenteViewModel> {
 		new Label(form).setText("Profesor/a " + this.getModelObject().getDocente().getNombre() );
 		new Button(form).setCaption("Actualizar cuenta").onClick(this::actualizarCuenta);
 		new Button(form).setCaption("Asignaciones y Notas").onClick(this::Asignaciones);
+		new Button(form).setCaption("Ver alumnos").onClick(this::verAlumnos);
 		new Button(form).setCaption("Volver").onClick(this::accept);
 		this.setTitle("Menu Docente");
 
 	}
-	
+	private void verAlumnos() {
+		Dialog<?> dialog = new ListadoDeAlumnosWindow(this,this.getModelObject().getDocente());
+		dialog.open();
+		dialog.onAccept(() -> {});
+	}
 	private void actualizarCuenta() {
 		Dialog<?> dialog = new ModificarDocenteWindow(this, this.getModelObject().getDocente());
 		dialog.open();

@@ -1,10 +1,13 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Docente {
 	private String nombre;
-
 	private String apellido;
 	private int legajo;
+	private List<Estudiante> estudiantesModificados = new ArrayList<Estudiante>();
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -57,6 +60,24 @@ public class Docente {
 	
 	public void agregarTareaConceptual(Asignacion asig, TareaConceptual tarea) {
 		asig.agregarTareaConceptual(tarea);
+	}
+
+	public List<Estudiante> getEstudiantesModificados() {
+		return estudiantesModificados;
+	}
+
+	public void setEstudiantesModificados(List<Estudiante> estudiantesModificados) {
+		this.estudiantesModificados = estudiantesModificados;
+	}
+
+	public void setLegajo(int legajo) {
+		this.legajo = legajo;
+	}
+
+	public void modificarAlumno(Estudiante estudiante) {
+		if(!estudiantesModificados.contains(estudiante)) {
+			estudiantesModificados.add(estudiante);
+		}
 	}
 	
 }
