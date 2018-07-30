@@ -54,7 +54,7 @@ public class NuevaTareaViewModel {
 		this.docente=docente;
 		tiposDeTarea.add(Tareas.CONCEPTUAL);
 		tiposDeTarea.add(Tareas.NUMERICA);
-		asignaciones.addAll(RepoAsignaciones.getInstance().all().stream().map(asig->asig.toString()).collect(Collectors.toList()));
+		asignaciones.addAll(RepoAsignaciones.getInstance().all().stream().map(asig->asig.getNombre()).collect(Collectors.toList()));
 	}
 
 	public String getNota1() {
@@ -125,21 +125,22 @@ public class NuevaTareaViewModel {
 
 	public void crearTarea() {
 		if(tipoDeTarea.equals(Tareas.NUMERICA)) {
-			notasNumericas.add(Double.parseDouble(nota1));
-			notasNumericas.add(Double.parseDouble(nota2));
-			notasNumericas.add(Double.parseDouble(nota3));
-			notasNumericas.add(Double.parseDouble(nota4));
+			if(nota1!=null)notasConceptuales.add(nota1);
+			if(nota2!=null)notasConceptuales.add(nota2);
+			if(nota3!=null)notasConceptuales.add(nota3);
+			if(nota4!=null)notasConceptuales.add(nota4);
 			List<NotaNumerica> notas = new ArrayList<NotaNumerica>();
 			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
 			notas.add(new NotaNumerica(estud, notasNumericas));
 		TareaNumerica tarea=new TareaNumerica(nombreTarea,notas);
+		asignacionPosta= (Asignacion) RepoAsignaciones.getInstance().filtrarPorNombre(asignacion);
 		docente.agregarTareaNumerica(asignacionPosta, tarea);
 	}
 		if(tipoDeTarea.equals(Tareas.CONCEPTUAL)) {
-			notasConceptuales.add(nota1);
-			notasConceptuales.add(nota2);
-			notasConceptuales.add(nota3);
-			notasConceptuales.add(nota4);
+			if(nota1!=null)notasConceptuales.add(nota1);
+			if(nota2!=null)notasConceptuales.add(nota2);
+			if(nota3!=null)notasConceptuales.add(nota3);
+			if(nota4!=null)notasConceptuales.add(nota4);
 			List<NotaConceptual> notas = new ArrayList<NotaConceptual>();
 			Estudiante estud = RepoEstudiantes.getInstance().obtenerPorLegajo(legajoEstudiante);
 			notas.add(new NotaConceptual(estud, notasConceptuales));

@@ -30,5 +30,9 @@ public class RepoAsignaciones {
 	public List<Asignacion> filtrarPorAlumno(Estudiante estudiante){
 		return asignaciones.stream().filter(asig -> asig.tieneAlumno(estudiante)).collect(Collectors.toList());
 	}
+	
+	public Asignacion filtrarPorNombre(String asignacion){
+		return asignaciones.stream().filter(asig -> asig.esLaAsignacion(asignacion)).collect(Collectors.toList()).get(0);
+	}
 
 }

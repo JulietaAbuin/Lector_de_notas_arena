@@ -24,4 +24,12 @@ private String nombre;
 		RepoAsignaciones.getInstance().agregar(new Asignacion(nombre, new ArrayList<TareaNumerica>(), new ArrayList<TareaConceptual>()));
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 }
