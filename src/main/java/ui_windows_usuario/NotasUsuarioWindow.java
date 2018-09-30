@@ -90,6 +90,7 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 			new Label(form).setText( "instancia Nº" + numero.toString() ).setWidth(120);
 			new Label(form).setText( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).toString()).setWidth(120);
 			primera_iteracion=0;
+			
 			if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B")) {
 				aprobacion = "APROBADO";
 			} else if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B-")) {
