@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TareaNumerica extends Tarea {
-	private List<NotaNumerica> notasNumericasXAlumnno = new ArrayList<NotaNumerica>();
+	private List<NotaNumerica> grades = new ArrayList<NotaNumerica>();
 	
 	public List<NotaNumerica> getNotasNumericasXAlumnno() {
-		return notasNumericasXAlumnno;
+		return grades;
 	}
 
 	public TareaNumerica(String nombre, List<NotaNumerica> notasNumericasXAlumnno) {
 		super(nombre);
-		this.notasNumericasXAlumnno = notasNumericasXAlumnno;
+		this.grades = notasNumericasXAlumnno;
 	}
 	
 	public boolean estaElAlumno(Estudiante estudiante) {
-		return notasNumericasXAlumnno.stream().anyMatch(nota ->nota.esElAlumno(estudiante));
+		return grades.stream().anyMatch(nota ->nota.esElAlumno(estudiante));
 	}
 	
 	public boolean esNumerica() {
@@ -31,12 +31,12 @@ public class TareaNumerica extends Tarea {
 	
 	public void agregarAlumno(Estudiante estudiante) {
 		if(!estaElAlumno(estudiante)) {
-			notasNumericasXAlumnno.add(new NotaNumerica(estudiante, new ArrayList<Double>()));
+			grades.add(new NotaNumerica(estudiante, new ArrayList<Double>()));
 		}
 	}
 	
 	public NotaNumerica notasXAlumno(Estudiante estudiante) {
-		return notasNumericasXAlumnno.stream().filter(nota -> nota.esElAlumno(estudiante)).collect(Collectors.toList()).get(0);
+		return grades.stream().filter(nota -> nota.esElAlumno(estudiante)).collect(Collectors.toList()).get(0);
 	}
 	
 }

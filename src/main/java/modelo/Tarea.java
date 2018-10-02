@@ -1,27 +1,45 @@
 package modelo;
 
 public abstract class Tarea {
-	private String nombre;
+	private String title;
+	private int id;
+	private String description;
 
 	public Tarea(String nombre) {
 		super();
-		this.nombre = nombre;
+		this.title = nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.title = nombre;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return title;
 	}
 
 	public boolean esLaTarea(String tarea) {
-		return nombre.equals(tarea);
+		return title.equals(tarea);
 	}
 
 	public abstract boolean esNumerica();
 	public abstract void agregarAlumno(Estudiante estudiante);
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
 
 }

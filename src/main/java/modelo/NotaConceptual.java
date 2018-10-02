@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotaConceptual extends Nota {
-	private List<String> notasConceptuales = new ArrayList<String>();
+	private List<String> grades = new ArrayList<String>();
 	
 	public List<String> getNotasConceptuales() {
-		return notasConceptuales;
+		return grades;
 	}
 
 	public NotaConceptual(Estudiante estudiante,List<String> notasConceptuales) {
 		super(estudiante);
-		this.notasConceptuales = notasConceptuales;
+		this.grades = notasConceptuales;
 	}
 
 	public void agregarNotas(String notaConceptual){
-		notasConceptuales.add(notaConceptual);
+		grades.add(notaConceptual);
 	}
 }
