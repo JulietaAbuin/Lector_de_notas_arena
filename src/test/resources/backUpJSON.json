@@ -1,0 +1,107 @@
+[
+	{
+		"nombre" : "Juan",
+		"apellido" : "Perez",
+		"tipoDocumento" : "DNI",
+		"nroDocumento": "17951844",
+		"telefono" : 49013070,
+		"domicilio" : {
+			"calle" : "Calle",
+			"numero" : "100"
+		},
+		
+		"dispositivos" :[
+		],
+	    "categoria" : {
+			"minimoConsumo" : 10.0,
+	       	"maximoConsumo" : 40.0,
+	       	"cargoFijo" : 18.76,
+	       	"cargoVariable" : 0.644
+		},  
+		"fechaAlta" : {
+			"year": 2018,
+			"month": 4,
+			"day": 25
+		},
+		"usuario" : "JP",
+		"contrasenia" : "laContrasenia",
+		"consumoMensual":0.0,
+		"puntuacion" : 0,
+		"optimizacionAutomatica" : true,
+		"consumoOptimizado" : [1.0, 3.1],
+		"zonaDeResidencia" : {
+			"transformadores" : []
+		}
+		
+	},
+	{
+		"nombre" : "Tito",
+		"apellido" : "Perez",
+		"tipoDocumento" : "DNI",
+		"nroDocumento": "30943434",
+		"telefono" : 49013070,
+		"domicilio" : {
+			"calle" : "Calle",
+			"numero" : "100"
+		},
+		
+		"dispositivos" :[
+		],
+	    "categoria" : {
+			"minimoConsumo" : 10.0,
+	       	"maximoConsumo" : 40.0,
+	       	"cargoFijo" : 18.76,
+	       	"cargoVariable" : 0.644
+		},  
+		"fechaAlta" : {
+			"year": 2018,
+			"month": 4,
+			"day": 25
+		},
+		"usuario" : "LP",
+		"contrasenia" : "laContrasenia",
+		"consumoMensual":0.0,
+		"puntuacion" : 0,
+		"optimizacionAutomatica" : false,
+		"consumoOptimizado" : [1.0, 3.1],
+		"zonaDeResidencia" : {
+			"transformadores" : []
+		}
+		
+	},
+	{
+		"nombre" : "Juan",
+		"apellido" : "Perez",
+		"tipoDocumento" : "DNI",
+		"nroDocumento": "17951844",
+		"telefono" : 49013070,
+		"domicilio" : {
+			"calle" : "Calle",
+			"numero" : "100"
+		},
+		
+		"dispositivos" :[
+		],
+	    "categoria" : {
+			"minimoConsumo" : 10.0,
+	       	"maximoConsumo" : 40.0,
+	       	"cargoFijo" : 18.76,
+	       	"cargoVariable" : 0.644
+		},  
+		"fechaAlta" : {
+			"year": 2018,
+			"month": 4,
+			"day": 25
+		},
+		"usuario" : "JP",
+		"contrasenia" : "laContrasenia",
+		"consumoMensual":0.0,
+		"puntuacion" : 0,
+		"optimizacionAutomatica" : true,
+		"consumoOptimizado" : [1.0, 3.1],
+		"zonaDeResidencia" : {
+			"transformadores" : []
+		}
+		
+	}
+]
