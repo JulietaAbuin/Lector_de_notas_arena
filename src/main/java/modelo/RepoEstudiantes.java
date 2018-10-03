@@ -8,7 +8,8 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-import conexion_http.JerseyClienteGet;
+import conexion_http.Cliente;
+import conexion_http.JsonToEstudiante;
 
 
 public class RepoEstudiantes {
@@ -35,14 +36,10 @@ public class RepoEstudiantes {
 	}
 	
 	public boolean contieneA(String nombre, int legajo) {
-		Client client = Client.create();
-		WebResource webResource = client.resource("http://notitas.herokuapp.com/student");
-		ClientResponse response = webResource.header("Authorization",
-				"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho")
-				.accept("application/json").get(ClientResponse.class);
-		String output = response.getEntity(String.class);
-		Integer code = new Integer(legajo);
-	return 	output.contains(nombre) & output.contains(code.toString());
+		Cliente cliente = new Cliente();
+		ClientResponse response = cliente.getEstudiante();
+		Estudiante est = JsonToEstudiante.main(response);
+	return est.tieneNombreIgual(nombre) & est.tieneLegajoIgual(legajo);
 		
 	}
 
@@ -57,19 +54,8 @@ public class RepoEstudiantes {
 	}
 	
 	public Estudiante obtener(String nombre) {
-		Client client = Client.create();
-		WebResource webResource = client.resource("http://notitas.herokuapp.com/student");
-		ClientResponse response = webResource.header("Authorization",
-				"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho")
-				.accept("application/json").get(ClientResponse.class);
-		String output = response.getEntity(String.class);
-	 	if(output.contains(nombre)){
-	 		Estudiante est = new Gson().fromJson(output,Estudiante.class);
-	 		return est;
-	 	}else {
-	 		return null;
-	 	}
-	 		
+		Cliente cliente = new Cliente();
+		return JsonToEstudiante.main(cliente.getEstudiante());
 	}
 	
 	public Estudiante obtenerPorLegajo(int legajo) {

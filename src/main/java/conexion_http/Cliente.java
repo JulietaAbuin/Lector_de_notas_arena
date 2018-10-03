@@ -20,4 +20,9 @@ public class Cliente {
 				.accept("application/json").get(ClientResponse.class); 
 	}
 	
+	public ClientResponse getAsignaciones() {
+		webResource = this.cliente.resource(Cliente.resource + "student/assignments");
+		return webResource.header("Authorization","Bearer " + Cliente.token)
+				.accept("application/json").get(ClientResponse.class); 
+	}
 }

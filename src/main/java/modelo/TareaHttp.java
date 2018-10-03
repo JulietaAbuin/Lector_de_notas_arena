@@ -1,15 +1,17 @@
 package modelo;
 
-public abstract class Tarea {
+import java.util.List;
+
+public class TareaHttp {
 	private String title;
 	private int id;
 	private String description;
-
-	public Tarea(String nombre) {
+	private List<String> grades;
+	public TareaHttp(String nombre) {
 		super();
 		this.title = nombre;
 	}
-
+	
 	public void setNombre(String nombre) {
 		this.title = nombre;
 	}
@@ -21,9 +23,6 @@ public abstract class Tarea {
 	public boolean esLaTarea(String tarea) {
 		return title.equals(tarea);
 	}
-
-	public abstract boolean esNumerica();
-	public abstract void agregarAlumno(Estudiante estudiante);
 
 	public int getId() {
 		return id;
@@ -39,6 +38,22 @@ public abstract class Tarea {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public List<String> getGrades() {
+		return grades;
+	}
+
+	public void setGrades(List<String> grades) {
+		this.grades = grades;
 	}
 	
 

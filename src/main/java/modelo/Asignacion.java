@@ -27,11 +27,11 @@ public class Asignacion {
 		return tareasConceptuales;
 	}
 
-	public boolean existeTareaNumerica(Tarea tareaNueva) {
+	public boolean existeTareaNumerica(TareaD tareaNueva) {
 		return tareasNumericas.stream().anyMatch(tarea -> tarea.esLaTarea(tareaNueva.getNombre()));
 	}
 
-	public boolean existeTareaConceptual(Tarea tareaNueva) {
+	public boolean existeTareaConceptual(TareaD tareaNueva) {
 		return tareasConceptuales.stream().anyMatch(tarea -> tarea.esLaTarea(tareaNueva.getNombre()));
 	}
 
@@ -39,7 +39,7 @@ public class Asignacion {
 		return nombre.equals(materia);
 	}
 
-	public void agregarEstudianteATarea(Estudiante estudiante, Tarea tarea) {
+	public void agregarEstudianteATarea(Estudiante estudiante, TareaD tarea) {
 		if (tarea.esNumerica()) {
 			this.agregarEstudianteATareaNumerica(estudiante, tarea);
 
@@ -48,12 +48,12 @@ public class Asignacion {
 		}
 	}
 
-	private void agregarEstudianteATareaNumerica(Estudiante estudiante, Tarea tareaNueva) {
+	private void agregarEstudianteATareaNumerica(Estudiante estudiante, TareaD tareaNueva) {
 		tareasNumericas.stream().filter(tarea -> tarea.esLaTarea(tareaNueva.getNombre())).collect(Collectors.toList())
 				.get(0).agregarAlumno(estudiante);
 	}
 
-	private void agregarEstudianteATareaConceptual(Estudiante estudiante, Tarea tareaNueva) {
+	private void agregarEstudianteATareaConceptual(Estudiante estudiante, TareaD tareaNueva) {
 		tareasConceptuales.stream().filter(tarea -> tarea.esLaTarea(tareaNueva.getNombre()))
 				.collect(Collectors.toList()).get(0).agregarAlumno(estudiante);
 	}

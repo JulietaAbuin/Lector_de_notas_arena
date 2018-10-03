@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TareaNumerica extends Tarea {
+public class TareaNumerica extends TareaD {
 	private List<NotaNumerica> grades = new ArrayList<NotaNumerica>();
 	
 	public List<NotaNumerica> getNotasNumericasXAlumnno() {

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import conexion_http.Cliente;
+import conexion_http.JsonToAsignacion;
+
 public class RepoAsignaciones {
 	private List<Asignacion> asignaciones = new ArrayList<>();
 	private static RepoAsignaciones repo;
@@ -27,8 +30,9 @@ public class RepoAsignaciones {
 		return asignaciones.stream().anyMatch(e -> e.esLaAsignacion(materia.getNombre()));
 	}
 
-	public List<Asignacion> filtrarPorAlumno(Estudiante estudiante) {
-		return asignaciones.stream().filter(asig -> asig.tieneAlumno(estudiante)).collect(Collectors.toList());
+	public List<TareaHttp> filtrarPorAlumno(Estudiante estudiante) {
+		Cliente cliente = new Cliente();
+		return JsonToAsignacion.main(cliente.getAsignaciones());
 	}
 
 	public Asignacion filtrarPorNombre(String asignacion) {

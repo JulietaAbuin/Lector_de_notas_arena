@@ -20,7 +20,7 @@ public class Docente {
 		this.apellido = apellido;
 	}
 
-	public void asignarTarea(Asignacion asig , Estudiante estudiante, Tarea tarea) {
+	public void asignarTarea(Asignacion asig , Estudiante estudiante, TareaD tarea) {
 		asig.agregarEstudianteATarea(estudiante,tarea);
 	}
 	

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TareaConceptual extends Tarea {
+public class TareaConceptual extends TareaD {
 private List<NotaConceptual> notasConceptualesXAlumnno = new ArrayList<NotaConceptual>();
 	
 

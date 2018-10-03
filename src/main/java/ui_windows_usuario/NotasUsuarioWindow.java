@@ -11,6 +11,8 @@ import modelo.Asignacion;
 import modelo.Estudiante;
 import modelo.NotaNumerica;
 import modelo.RepoAsignaciones;
+import modelo.TareaD;
+import modelo.TareaHttp;
 import modelo.TareaConceptual;
 import modelo.TareaNumerica;
 import ui_vm_alumno.NotasUsuarioViewModel;
@@ -34,24 +36,24 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		this.setTitle("Notas");
 
 		RepoAsignaciones.getInstance().filtrarPorAlumno(estudiante)
-				.forEach(asig -> this.crearAsignacion(asig, estudiante, form));
-
+		.forEach(tarea -> this.crearAsignacion(tarea, estudiante, form));
+		
 		new Button(form).setCaption("Volver").onClick(this::accept);
 
 	}
 
-	private void crearAsignacion(Asignacion asignacion, Estudiante estudiante, Panel form) {
+	private void crearAsignacion(TareaHttp tarea, Estudiante estudiante, Panel form) {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
-		new Label(form).setText(asignacion.getNombre()).setWidth(120);
+		new Label(form).setText(tarea.getNombre()).setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);	
 
-		asignacion.filtrarTareasNumericasXAlumno(estudiante).forEach(esaTarea -> this.crearTareaNumerica(esaTarea, estudiante, form));
-		asignacion.filtrarTareasConceptualesXAlumno(estudiante).forEach(esaTarea -> this.crearTareaConceptual(esaTarea, estudiante, form));
+		//tarea.filtrarTareasNumericasXAlumno(estudiante).forEach(esaTarea -> this.crearTareaNumerica(esaTarea, estudiante, form));
+		//tarea.filtrarTareasConceptualesXAlumno(estudiante).forEach(esaTarea -> this.crearTareaConceptual(esaTarea, estudiante, form));
 
 	}
 
