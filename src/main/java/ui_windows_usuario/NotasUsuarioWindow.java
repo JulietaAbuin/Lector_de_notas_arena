@@ -6,11 +6,9 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
-
-import modelo.Asignacion;
 import modelo.Estudiante;
 import modelo.NotaNumerica;
-import modelo.RepoAsignaciones;
+import modelo.RepoTareas;
 import modelo.TareaD;
 import modelo.TareaHttp;
 import modelo.TareaConceptual;
@@ -35,14 +33,14 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		form.setLayout(new ColumnLayout(4));
 		this.setTitle("Notas");
 
-		RepoAsignaciones.getInstance().filtrarPorAlumno(estudiante)
+		RepoTareas.getInstance().filtrarPorAlumno(estudiante)
 		.forEach(tarea -> this.crearAsignacion(tarea, estudiante, form));
 		
 		new Button(form).setCaption("Volver").onClick(this::accept);
 
 	}
 
-	private void crearAsignacion(TareaHttp tarea, Estudiante estudiante, Panel form) {
+	private void crearAsignacion(TareaD tarea, Estudiante estudiante, Panel form) {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
@@ -52,59 +50,8 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);	
 
-		//tarea.filtrarTareasNumericasXAlumno(estudiante).forEach(esaTarea -> this.crearTareaNumerica(esaTarea, estudiante, form));
-		//tarea.filtrarTareasConceptualesXAlumno(estudiante).forEach(esaTarea -> this.crearTareaConceptual(esaTarea, estudiante, form));
-
 	}
 
-	private void crearTareaNumerica(TareaNumerica tarea, Estudiante estudiante, Panel form) {
-		new Label(form).setText(tarea.getNombre()).setWidth(120);
-		Integer numero;
-		int primera_iteracion = 1;
-		
-		for (int i = 0; i <  tarea.notasXAlumno(estudiante).getNotasNumerica().size(); i++) {
-			numero=i;
-			if(primera_iteracion==0) {
-				new Label(form).setText("").setWidth(120);
-			}
-			new Label(form).setText( "instancia Nº" + numero.toString() ).setWidth(120);
-			new Label(form).setText( tarea.notasXAlumno(estudiante).getNotasNumerica().get(i).toString()).setWidth(120);
-			primera_iteracion=0;
-			if ( tarea.notasXAlumno(estudiante).getNotasNumerica().get(i) >= 6.0) {
-				aprobacion = "APROBADO";
-			} else {
-				aprobacion = "DESAPROBADO";
-			}
-			new Label(form).setText(aprobacion).setWidth(120);
 
-		}
-	}
-	
-	private void crearTareaConceptual(TareaConceptual tarea, Estudiante estudiante, Panel form) {
-		new Label(form).setText(tarea.getNombre()).setWidth(120);
-		Integer numero;
-		int primera_iteracion = 1;
-		for (int i = 0; i <  tarea.notasXAlumno(estudiante).getNotasConceptuales().size(); i++) {
-			numero=i;
-			if(primera_iteracion==0) {
-				new Label(form).setText("").setWidth(120);
-			}
-			new Label(form).setText( "instancia Nº" + numero.toString() ).setWidth(120);
-			new Label(form).setText( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).toString()).setWidth(120);
-			primera_iteracion=0;
-			
-			if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B")) {
-				aprobacion = "APROBADO";
-			} else if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B-")) {
-				aprobacion = "APROBADO";
-			}else if ( tarea.notasXAlumno(estudiante).getNotasConceptuales().get(i).equals("B+")) {
-				aprobacion = "APROBADO";
-			}
-			else {
-				aprobacion = "DESAPROBADO";
-			}
-			new Label(form).setText(aprobacion).setWidth(120);
-		}
-	}
 
 }

@@ -2,6 +2,8 @@ package ui_vm_alumno;
 
 import org.uqbar.commons.utils.Observable;
 
+import conexion_http.Cliente;
+import conexion_http.EstudianteToJson;
 import modelo.Estudiante;
 import modelo.RepoEstudiantes;
 
@@ -10,28 +12,32 @@ public class CuentaUsuarioViewModel {
 
 		public String nombreModificado;
 		public String apellidoModificado;
-		public int legajoModificado;
 		public String usuarioGitModificado;
+		
 		public String nombre;
 		public String apellido;
-		public int legajo;
 		public String usuarioGit;
 		
 		public void aplicarModificacion(Estudiante estudiante) {
+			nombre = estudiante.getNombre();
+			apellido = estudiante.getApellido();
+			usuarioGit = estudiante.getUsuariogit();
+			Integer legajo = estudiante.getLegajo();
 			if(nombreModificado!= "") {
 				estudiante.setNombre(nombreModificado);
 			}
 			if(apellidoModificado!= "") {
 				estudiante.setApellido(apellidoModificado);
 			}
-			if(legajoModificado != 0) {
-				estudiante.setLegajo(legajoModificado);
-			}
 			if(usuarioGitModificado != "") {
 				estudiante.setUsuariogit(usuarioGitModificado);
 			}
-			
+			Cliente cliente = new Cliente();
+			cliente.putEstudiante(EstudianteToJson.pasarAJson(legajo, nombre, apellido, usuarioGit));
+		
 		}
+		
+		
 		public String getNombreModificado() {
 			return nombreModificado;
 		}
@@ -43,12 +49,6 @@ public class CuentaUsuarioViewModel {
 		}
 		public void setApellidoModificado(String apellidoModificado) {
 			this.apellidoModificado = apellidoModificado;
-		}
-		public int getLegajoModificado() {
-			return legajoModificado;
-		}
-		public void setLegajoModificado(int legajoModificado) {
-			this.legajoModificado = legajoModificado;
 		}
 		public String getUsuarioGitModificado() {
 			return usuarioGitModificado;
@@ -68,12 +68,7 @@ public class CuentaUsuarioViewModel {
 		public void setApellido(String apellido) {
 			this.apellido = apellido;
 		}
-		public int getLegajo() {
-			return legajo;
-		}
-		public void setLegajo(int legajo) {
-			this.legajo = legajo;
-		}
+	
 		public String getUsuarioGit() {
 			return usuarioGit;
 		}

@@ -5,20 +5,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TareaConceptual extends TareaD {
-private List<NotaConceptual> notasConceptualesXAlumnno = new ArrayList<NotaConceptual>();
+private List<NotaConceptual> grades = new ArrayList<NotaConceptual>();
 	
 
 	public List<NotaConceptual> getNotasNumericasXAlumnno() {
-		return notasConceptualesXAlumnno;
+		return grades;
 	}
 
 	public TareaConceptual(String nombre, List<NotaConceptual> notasConceptualesXAlumnno) {
 		super(nombre);
-		this.notasConceptualesXAlumnno = notasConceptualesXAlumnno;
-	}
-	
-	public boolean estaElAlumno(Estudiante estudiante) {
-		return notasConceptualesXAlumnno.stream().anyMatch(nota ->nota.esElAlumno(estudiante));
+		this.grades = notasConceptualesXAlumnno;
 	}
 	
 	public boolean esNumerica() {
@@ -26,17 +22,12 @@ private List<NotaConceptual> notasConceptualesXAlumnno = new ArrayList<NotaConce
 	}
 	
 	public void agregarNota(Estudiante estudiante, String notaConceptual){
-		agregarAlumno(estudiante);
-		notasXAlumno(estudiante).agregarNotas(notaConceptual);
+		grades.add(new NotaConceptual(notaConceptual));
 	}
-	
-	public void agregarAlumno(Estudiante estudiante) {
-		if(!estaElAlumno(estudiante)) {
-			notasConceptualesXAlumnno.add(new NotaConceptual(estudiante, new ArrayList<String>()));
-		}
+
+	@Override
+	public Boolean estaAprobada() {
+		return  grades.stream().anyMatch(grade->grade.estaAprobada());
 	}
-	
-	public NotaConceptual notasXAlumno(Estudiante estudiante) {
-		return notasConceptualesXAlumnno.stream().filter(nota -> nota.esElAlumno(estudiante)).collect(Collectors.toList()).get(0);
-	}
+
 }

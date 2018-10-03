@@ -1,21 +1,28 @@
 package modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+
 
 public class NotaNumerica extends Nota {
-private List<Double> notasNumerica = new ArrayList<Double>();
 	
-	public List<Double> getNotasNumerica() {
-	return notasNumerica;
-}
-
-	public NotaNumerica(Estudiante alumno, List<Double> notasNumerica) {
-		super(alumno);
-		this.notasNumerica = notasNumerica;
+public NotaNumerica(Double value) {
+		super();
+		this.value = value;
 	}
 
-	public void agregarNotas(Double notaNumerica){
-		notasNumerica.add(notaNumerica);
+private Double value;
+	
+	public Double getNotasNumerica() {
+	return value;
+}
+
+	public void agregarNota(Double notaNumerica){
+		value=notaNumerica;
+	}
+
+	@Override
+	public Boolean estaAprobada() {
+		// TODO Auto-generated method stub
+		return value>=6;
 	}
 }

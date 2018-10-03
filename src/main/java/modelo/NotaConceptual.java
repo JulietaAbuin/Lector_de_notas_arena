@@ -1,21 +1,36 @@
 package modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 public class NotaConceptual extends Nota {
-	private List<String> grades = new ArrayList<String>();
-	
-	public List<String> getNotasConceptuales() {
-		return grades;
+	private String value;
+
+	public String getNotasConceptuales() {
+		return value;
 	}
 
-	public NotaConceptual(Estudiante estudiante,List<String> notasConceptuales) {
-		super(estudiante);
-		this.grades = notasConceptuales;
+	public NotaConceptual(String value) {
+		super();
+		this.value = value;
 	}
 
-	public void agregarNotas(String notaConceptual){
-		grades.add(notaConceptual);
+	public void agregarNota(String notaConceptual) {
+		value = notaConceptual;
 	}
+
+	@Override
+	public Boolean estaAprobada() {
+		switch (value) {
+		case "B+":
+			return true;
+		case "B":
+			return true;
+		case "B-":
+			return true;
+
+		default:
+			return false;
+		}
+	}
+
 }

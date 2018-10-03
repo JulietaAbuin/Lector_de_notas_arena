@@ -17,6 +17,7 @@ public class UsuarioWindow extends Dialog<UsuarioViewModel> {
 	static UsuarioViewModel model = new UsuarioViewModel();
 	LectorNotasWindow owner;
 	public Estudiante estudiante;
+	
 	public UsuarioWindow(LectorNotasWindow owner, Estudiante estudiante) {
 		super(owner, model);
 		this.estudiante = estudiante;

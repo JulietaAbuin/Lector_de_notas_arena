@@ -16,27 +16,19 @@ public class TareaNumerica extends TareaD {
 		this.grades = notasNumericasXAlumnno;
 	}
 	
-	public boolean estaElAlumno(Estudiante estudiante) {
-		return grades.stream().anyMatch(nota ->nota.esElAlumno(estudiante));
-	}
-	
 	public boolean esNumerica() {
 		return true;
 	}
 	
 	public void agregarNota(Estudiante estudiante, Double notaNumerica){
-		agregarAlumno(estudiante);
-		notasXAlumno(estudiante).agregarNotas(notaNumerica);
+		grades.add(new NotaNumerica(notaNumerica));
+	}
+
+	@Override
+	public Boolean estaAprobada() {
+		return grades.stream().anyMatch(grade->grade.estaAprobada());
 	}
 	
-	public void agregarAlumno(Estudiante estudiante) {
-		if(!estaElAlumno(estudiante)) {
-			grades.add(new NotaNumerica(estudiante, new ArrayList<Double>()));
-		}
-	}
 	
-	public NotaNumerica notasXAlumno(Estudiante estudiante) {
-		return grades.stream().filter(nota -> nota.esElAlumno(estudiante)).collect(Collectors.toList()).get(0);
-	}
 	
 }

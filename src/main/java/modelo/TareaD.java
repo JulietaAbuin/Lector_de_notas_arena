@@ -6,7 +6,9 @@ public abstract class TareaD {
 	private String title;
 	private int id;
 	private String description;
-	private List<String> grades;
+	
+	public abstract Boolean estaAprobada();
+	
 	public TareaD(String nombre) {
 		super();
 		this.title = nombre;
@@ -25,8 +27,6 @@ public abstract class TareaD {
 	}
 
 	public abstract boolean esNumerica();
-	public abstract void agregarAlumno(Estudiante estudiante);
-
 	public int getId() {
 		return id;
 	}
@@ -49,15 +49,6 @@ public abstract class TareaD {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public List<String> getGrades() {
-		return grades;
-	}
-
-	public void setGrades(List<String> grades) {
-		this.grades = grades;
-	}
-	
+	}	
 
 }
