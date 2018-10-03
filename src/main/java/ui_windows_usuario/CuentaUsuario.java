@@ -20,6 +20,9 @@ public class CuentaUsuario extends Dialog<CuentaUsuarioViewModel> {
 		super(owner, model);
 		this.owner = owner;
 		this.estudiante = estudiante;
+		model.setNombre(estudiante.getNombre());
+		model.setApellido(estudiante.getApellido());
+		model.setUsuarioGit(estudiante.getUsuariogit());
 	}
 
 	

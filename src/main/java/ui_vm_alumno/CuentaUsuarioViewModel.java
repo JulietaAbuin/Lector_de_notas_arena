@@ -23,7 +23,7 @@ public class CuentaUsuarioViewModel {
 			apellido = estudiante.getApellido();
 			usuarioGit = estudiante.getUsuariogit();
 			Integer legajo = estudiante.getLegajo();
-			if(nombreModificado!= "") {
+			if(nombreModificado != "") {
 				estudiante.setNombre(nombreModificado);
 			}
 			if(apellidoModificado!= "") {
