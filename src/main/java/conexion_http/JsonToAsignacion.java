@@ -20,10 +20,12 @@ public class JsonToAsignacion {
 			}
 			
 			String output = response.getEntity(String.class);
+
 			Type tareasType = new TypeToken<List<TareaHttp>>() {}.getType();    
 		 	List<TareaHttp> tareas = new Gson().fromJson(output,tareasType);
 		 	TareasHttpToTarea pasaje =new TareasHttpToTarea();
 		 	tareas.stream().forEach(t -> pasaje.pasarATarea(t));
+
 		 		return tareas;
 
 		} catch (Exception e) {
