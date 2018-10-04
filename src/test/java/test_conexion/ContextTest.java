@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import com.sun.jersey.api.client.*;
 import conexion_http.Cliente;
+import conexion_http.EstudianteToJson;
 
 public class ContextTest {
 	Cliente cliente;
@@ -14,16 +15,26 @@ public class ContextTest {
 	@Before
 	public void setUp() {
 		cliente = new Cliente();
-		response = cliente.getEstudiante();
+
 	}
 
 	@Test
-	public void conexion() {
+	public void conexionGET() {
+		response = cliente.getEstudiante();
 		assertEquals(200, response.getStatus());
 	}
 
 	@Test
+	public void conexionPUT() {
+		
+		response = cliente.putEstudiante(" {'code': '1214731', 'first_name': 'Franco', 'last_name': 'Bulgarelli', 'github_user': 'flbulgarelli' } ");
+
+	assertEquals(200, response.getStatus());
+	}
+
+	@Test
 	public void jsonAlumnoEstaBien() {
+		response = cliente.getEstudiante();
 		String json = response.getEntity(String.class);
 		assertTrue(json.contains("code"));
 		assertTrue(json.contains("first_name"));

@@ -20,9 +20,9 @@ public class Cliente {
 				.accept("application/json").get(ClientResponse.class); 
 	}
 	
-	public  void putEstudiante(String json) {
+	public ClientResponse  putEstudiante(String json) {
 		webResource = this.cliente.resource(Cliente.resource + "student");
-		webResource.header("Authorization","Bearer " + Cliente.token)
+		return webResource.header("Authorization","Bearer " + Cliente.token)
 				.accept("application/json").put(ClientResponse.class,json);
 	}
 	
