@@ -15,7 +15,7 @@ public class ContextTest {
 	@Before
 	public void setUp() {
 		cliente = new Cliente();
-
+		
 	}
 
 	@Test
@@ -23,13 +23,11 @@ public class ContextTest {
 		response = cliente.getEstudiante();
 		assertEquals(200, response.getStatus());
 	}
-
+	
 	@Test
 	public void conexionPUT() {
-		
-		response = cliente.putEstudiante(" {'code': '1214731', 'first_name': 'Franco', 'last_name': 'Bulgarelli', 'github_user': 'flbulgarelli' } ");
-
-	assertEquals(200, response.getStatus());
+		response = cliente.putEstudiante(EstudianteToJson.pasarAJson(111222333, "Bart", "Simpsons", "Growler"));
+		assertEquals(201, response.getStatus());
 	}
 
 	@Test

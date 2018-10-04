@@ -9,10 +9,8 @@ import org.uqbar.arena.windows.WindowOwner;
 import modelo.Estudiante;
 import modelo.NotaNumerica;
 import modelo.RepoTareas;
-import modelo.TareaD;
+import modelo.Tarea;
 import modelo.TareaHttp;
-import modelo.TareaConceptual;
-import modelo.TareaNumerica;
 import ui_vm_alumno.NotasUsuarioViewModel;
 
 public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
@@ -33,14 +31,16 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		form.setLayout(new ColumnLayout(4));
 		this.setTitle("Notas");
 
-		RepoTareas.getInstance().filtrarPorAlumno(estudiante)
-		.forEach(tarea -> this.crearAsignacion(tarea, estudiante, form));
+		RepoTareas.getInstance().filtrarPorAlumno(estudiante);
+		//.forEach(tarea -> this.crearAsignacion(tarea, estudiante, form));
 		
 		new Button(form).setCaption("Volver").onClick(this::accept);
 
 	}
 
+
 	private void crearAsignacion(TareaHttp tarea, Estudiante estudiante, Panel form) {
+
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);

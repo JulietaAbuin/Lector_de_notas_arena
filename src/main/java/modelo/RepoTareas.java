@@ -17,6 +17,7 @@ private static RepoTareas repo;
 		return repo;
 	}
 
+
 	public List<TareaHttp> filtrarPorAlumno(Estudiante estudiante) {
 		Cliente cliente = new Cliente();
 		return JsonToAsignacion.main(cliente.getAsignaciones());

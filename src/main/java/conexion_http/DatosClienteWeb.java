@@ -1,15 +1,9 @@
 package conexion_http;
 
-import java.lang.reflect.Type;
-import java.util.List;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.sun.jersey.api.client.ClientResponse;
-
-import modelo.TareaHttp;
 
 public class DatosClienteWeb {
+
 
 	public static void main(String args[]) {
 		Cliente cliente = new Cliente();
@@ -32,7 +26,8 @@ public class DatosClienteWeb {
 			e.printStackTrace();
 		}
 	}*/
-	
+
+
 }
 
 
