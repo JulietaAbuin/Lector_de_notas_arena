@@ -9,10 +9,8 @@ import org.uqbar.arena.windows.WindowOwner;
 import modelo.Estudiante;
 import modelo.NotaNumerica;
 import modelo.RepoTareas;
-import modelo.TareaD;
+import modelo.Tarea;
 import modelo.TareaHttp;
-import modelo.TareaConceptual;
-import modelo.TareaNumerica;
 import ui_vm_alumno.NotasUsuarioViewModel;
 
 public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
@@ -40,7 +38,7 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 
 	}
 
-	private void crearAsignacion(TareaD tarea, Estudiante estudiante, Panel form) {
+	private void crearAsignacion(Tarea tarea, Estudiante estudiante, Panel form) {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);

@@ -13,7 +13,7 @@ private static RepoTareas repo;
 		return repo;
 	}
 
-	public List<TareaD> filtrarPorAlumno(Estudiante estudiante) {
+	public List<Tarea> filtrarPorAlumno(Estudiante estudiante) {
 	
 		return null;
 	}

@@ -1,17 +1,17 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class TareaD {
+public  class Tarea {
 	private String title;
 	private int id;
 	private String description;
+	private List<Nota> grades = new ArrayList();
 	
-	public abstract Boolean estaAprobada();
-	
-	public TareaD(String nombre) {
-		super();
+	public Tarea(String nombre, String description) {
 		this.title = nombre;
+		this.description=description;
 	}
 	
 	public void setNombre(String nombre) {
@@ -25,8 +25,7 @@ public abstract class TareaD {
 	public boolean esLaTarea(String tarea) {
 		return title.equals(tarea);
 	}
-
-	public abstract boolean esNumerica();
+	
 	public int getId() {
 		return id;
 	}
@@ -50,5 +49,17 @@ public abstract class TareaD {
 	public void setTitle(String title) {
 		this.title = title;
 	}	
+	
+	public void agregarNotaConceptual(String nota){
+		grades.add(new NotaConceptual(nota));
+	}
+	
+	public void agregarNotaNumerica(Double nota){
+		grades.add(new NotaNumerica(nota));
+	}
+
+	public Boolean estaAprobada() {
+		return  grades.stream().anyMatch(grade->grade.estaAprobada());
+	}
 
 }

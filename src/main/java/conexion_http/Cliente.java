@@ -26,6 +26,7 @@ public class Cliente {
 				.accept("application/json").put(ClientResponse.class,json);
 	}
 	
+	
 	public ClientResponse getAsignaciones() {
 		webResource = this.cliente.resource(Cliente.resource + "student/assignments");
 		return webResource.header("Authorization","Bearer " + Cliente.token)
