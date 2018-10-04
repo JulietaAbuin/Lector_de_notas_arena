@@ -32,8 +32,8 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		this.setTitle("Notas");
 
 		RepoTareas.getInstance().filtrarPorAlumno(estudiante);
-		//.forEach(tarea -> this.crearAsignacion(tarea, estudiante, form));
-		
+	//.forEach(tarea -> System.out.println(tarea));
+		 //this.crearAsignacion(tarea, estudiante, form)
 		new Button(form).setCaption("Volver").onClick(this::accept);
 
 	}
