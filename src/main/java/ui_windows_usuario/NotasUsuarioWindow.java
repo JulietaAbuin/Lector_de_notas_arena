@@ -39,10 +39,6 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 	}
 
 	private void crearAsignacion(Tarea tarea, Estudiante estudiante, Panel form) {
-		new Label(form).setText("").setWidth(120);
-		new Label(form).setText("").setWidth(120);
-		new Label(form).setText("").setWidth(120);
-		new Label(form).setText("").setWidth(120);
 		new Label(form).setText(tarea.getNombre()).setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
