@@ -2,6 +2,10 @@ package modelo;
 
 import java.util.List;
 
+import conexion_http.Cliente;
+import conexion_http.JsonToAsignacion;
+import conexion_http.jsonGenerico;
+
 public class RepoTareas {
 
 private static RepoTareas repo;
@@ -13,9 +17,9 @@ private static RepoTareas repo;
 		return repo;
 	}
 
-	public List<TareaD> filtrarPorAlumno(Estudiante estudiante) {
-	
-		return null;
+	public List<TareaHttp> filtrarPorAlumno(Estudiante estudiante) {
+		Cliente cliente = new Cliente();
+		return JsonToAsignacion.main(cliente.getAsignaciones());
 	}
 
 }

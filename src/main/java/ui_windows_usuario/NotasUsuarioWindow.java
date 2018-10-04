@@ -40,7 +40,7 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 
 	}
 
-	private void crearAsignacion(TareaD tarea, Estudiante estudiante, Panel form) {
+	private void crearAsignacion(TareaHttp tarea, Estudiante estudiante, Panel form) {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);

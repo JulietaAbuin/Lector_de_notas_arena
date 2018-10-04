@@ -19,8 +19,9 @@ public class JsonToAsignacion {
 			}
 
 			String output = response.getEntity(String.class);
-			Type tareasType = new TypeToken<List<TareaHttp>>() {}.getType();    
-		 	List<TareaHttp> tareas = new Gson().fromJson(output,tareasType);
+			List<TareaHttp> tareas;
+		jsonGenerico<TareaHttp> tareasjson = new jsonGenerico<>(output);
+		tareas = tareasjson.getListaClientes(TareaHttp[].class);
 		 		return tareas;
 
 		} catch (Exception e) {
