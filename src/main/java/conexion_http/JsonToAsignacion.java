@@ -21,9 +21,11 @@ public class JsonToAsignacion {
 			}
 
 			String output = response.getEntity(String.class);
-		System.out.println(output);
+			String json = output.substring(0, output.length() - 1).substring(15);
+			//System.out.println(json);
 			List<TareaHttp> tareas = new ArrayList<TareaHttp>();
-			TareaHttp[] tar = new Gson().fromJson(output, TareaHttp[].class);
+			TareaHttp[] tar = new Gson().fromJson(json, TareaHttp[].class);
+			
 			tareas.addAll(Arrays.asList(tar));
 			
 		 		return tareas;
@@ -34,5 +36,12 @@ public class JsonToAsignacion {
 			return null;
 		}
 
+	}
+	
+	public static TareaHttp[] tareas(ClientResponse response) {
+		String output = response.getEntity(String.class);
+		List<TareaHttp> tareas = new ArrayList<TareaHttp>();
+		TareaHttp[] tar = new Gson().fromJson(output, TareaHttp[].class);
+		return tar;
 	}
 }
