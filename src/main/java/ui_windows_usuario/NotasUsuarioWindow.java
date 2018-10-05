@@ -37,6 +37,9 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		new Button(form).setCaption("Volver").onClick(this::accept);
 	}
 
+<<<<<<< HEAD
+	private void crearAsignacion(Tarea tarea, Estudiante estudiante, Panel form) {
+=======
 
 	private void crearAsignacion(TareaHttp tarea, Estudiante estudiante, Panel form) {
 
@@ -44,6 +47,7 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
+>>>>>>> bfbd15019845078dbb8201dc940175e0b91c5bf9
 		new Label(form).setText(tarea.getNombre()).setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);

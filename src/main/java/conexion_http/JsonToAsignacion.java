@@ -13,13 +13,14 @@ import com.sun.jersey.api.client.ClientResponse;
 import modelo.TareaHttp;
 
 public class JsonToAsignacion {
+	
 	public static List<TareaHttp> main(ClientResponse response) {
 		try {
 
 			if (response.getStatus() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
 			}
-
+			
 			String output = response.getEntity(String.class);
 			String json = output.substring(0, output.length() - 1).substring(15);
 			//System.out.println(json);
@@ -27,7 +28,6 @@ public class JsonToAsignacion {
 			TareaHttp[] tar = new Gson().fromJson(json, TareaHttp[].class);
 			
 			tareas.addAll(Arrays.asList(tar));
-			
 		 		return tareas;
 
 		} catch (Exception e) {
