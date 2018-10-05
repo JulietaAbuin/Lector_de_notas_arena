@@ -1,6 +1,8 @@
 package conexion_http;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -20,12 +22,12 @@ public class JsonToAsignacion {
 			}
 			
 			String output = response.getEntity(String.class);
-
-			Type tareasType = new TypeToken<List<TareaHttp>>() {}.getType();    
-		 	List<TareaHttp> tareas = new Gson().fromJson(output,tareasType);
-		 	TareasHttpToTarea pasaje =new TareasHttpToTarea();
-		 	tareas.stream().forEach(t -> pasaje.pasarATarea(t));
-
+			String json = output.substring(0, output.length() - 1).substring(15);
+			//System.out.println(json);
+			List<TareaHttp> tareas = new ArrayList<TareaHttp>();
+			TareaHttp[] tar = new Gson().fromJson(json, TareaHttp[].class);
+			
+			tareas.addAll(Arrays.asList(tar));
 		 		return tareas;
 
 		} catch (Exception e) {
@@ -34,5 +36,12 @@ public class JsonToAsignacion {
 			return null;
 		}
 
+	}
+	
+	public static TareaHttp[] tareas(ClientResponse response) {
+		String output = response.getEntity(String.class);
+		List<TareaHttp> tareas = new ArrayList<TareaHttp>();
+		TareaHttp[] tar = new Gson().fromJson(output, TareaHttp[].class);
+		return tar;
 	}
 }

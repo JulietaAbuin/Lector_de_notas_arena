@@ -3,10 +3,10 @@ package modelo;
 import java.util.List;
 
 public class TareaHttp {
-	private String title;
 	private int id;
+	private String title;
 	private String description;
-	private List<String> grades;
+	private Integer[] grades;
 	public TareaHttp(String nombre) {
 		super();
 		this.title = nombre;
@@ -48,11 +48,11 @@ public class TareaHttp {
 		this.title = title;
 	}
 
-	public List<String> getGrades() {
+	public Integer[] getGrades() {
 		return grades;
 	}
 
-	public void setGrades(List<String> grades) {
+	public void setGrades(Integer[] grades) {
 		this.grades = grades;
 	}
 	

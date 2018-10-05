@@ -2,11 +2,19 @@ package test_conexion;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import com.google.gson.Gson;
 import com.sun.jersey.api.client.*;
 import conexion_http.Cliente;
 import conexion_http.EstudianteToJson;
+import conexion_http.JsonToAsignacion;
+import modelo.Tarea;
+import modelo.TareaHttp;
 
 public class ContextTest {
 	Cliente cliente;
@@ -39,6 +47,18 @@ public class ContextTest {
 		assertTrue(json.contains("last_name"));
 		assertTrue(json.contains("github_user"));
 
+	}
+	
+	@Test
+	public void getAsignacion() {
+		response = cliente.getAsignaciones();
+		assertEquals(200, response.getStatus());
+	}
+	
+	@Test
+	public void listaDeAsignaciones() {
+		response = cliente.getAsignaciones();
+		assertEquals(2, JsonToAsignacion.main(response).size());
 	}
 
 }
