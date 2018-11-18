@@ -39,7 +39,7 @@ public class RepoEstudiantes {
 		Cliente cliente = new Cliente();
 		ClientResponse response = cliente.getEstudiante();
 		Estudiante est = JsonToEstudiante.main(response);
-	return est.tieneNombreIgual(nombre) & est.tieneLegajoIgual(legajo);
+	return est.tieneNombreIgual(nombre) & est.tieneLegajoIgual((long) legajo);
 		
 	}
 
@@ -58,14 +58,16 @@ public class RepoEstudiantes {
 		return JsonToEstudiante.main(cliente.getEstudiante());
 	}
 	
-	public Estudiante obtenerPorLegajo(int legajo) {
+	public Estudiante obtenerPorLegajo(Long long1) {
 		Estudiante est = null;
 		for(int index=0;index<estudiantes.size();index++) {
-			if( estudiantes.get(index).tieneLegajoIgual(legajo)) {
+			if( estudiantes.get(index).tieneLegajoIgual(long1)) {
 				 est = estudiantes.get(index);
 			}
 	}
 		return est;
 }
+
+	
 }
 

@@ -46,4 +46,9 @@ public class RepoAsignaciones {
 		return asig;
 	}
 
+	public Object getAsignaciones(Long userId) {
+		
+		return null;
+	}
+
 }
