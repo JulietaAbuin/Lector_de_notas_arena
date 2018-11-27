@@ -4,7 +4,7 @@ import java.util.List;
 
 import conexion_http.Cliente;
 import conexion_http.JsonToAsignacion;
-import conexion_http.jsonGenerico;
+
 
 public class RepoTareas {
 
