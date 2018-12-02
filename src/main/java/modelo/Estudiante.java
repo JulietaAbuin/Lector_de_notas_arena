@@ -1,6 +1,15 @@
 package modelo;
 
+import java.util.List;
+
 public class Estudiante {
+	private long id;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	private String first_name;
 	private String last_name;
 	private String github_user;
@@ -43,11 +52,19 @@ public class Estudiante {
 		
 		return this.first_name.equals(nombre2) && this.code == legajo2;
 	}
+	
+public boolean esIgualporID(long id2) {
+		
+		return (this.getId()==id2);
+	}
 	public boolean tieneNombreIgual(String nombreIngresado) {
 		return this.first_name.equals(nombreIngresado);
 	}
 	public boolean tieneLegajoIgual(int legajo2) {
 		return legajo2 == this.code;
+	}
+	public List<TareaHttp> getAsignaciones() {
+		return RepoAsignaciones.getInstance().filtrarPorAlumno(this);
 	}
 
 }

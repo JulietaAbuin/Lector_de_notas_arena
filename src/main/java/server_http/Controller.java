@@ -1,20 +1,17 @@
 package server_http;
 
-import java.io.IOException;
 import java.util.List;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import modelo.Asignacion;
+import com.google.gson.Gson;
 import modelo.Estudiante;
+import modelo.TareaHttp;
+import spark.Request;
+import spark.Response;
+import spark.Spark;
 
 public class Controller {
-	public class AlumnoController {
-		
-		private static final JSONParser<Alumno> parserAlumnos = new JSONParser<Alumno>();	
-		
-		private static Alumno obtenerAlumnoSiExiste(Long id) {
-			Alumno alumno = RepoAlumnos.getInstance().obtenerXId(id);
+				
+		private static  Estudiante obtenerAlumnoSiExiste(int id) {
+			Estudiante alumno = RepoEstudiantesServer.getInstance().obtenerporID(id);
 			
 			if (alumno == null) {
 				Spark.halt(401, "Me mandaste cualquier cosaa, no te hagas el gil");
@@ -23,24 +20,22 @@ public class Controller {
 			return alumno;		
 		}
 		
-		public static Alumno getAlumno(Request req, Response res) {		
-			return obtenerAlumnoSiExiste((Long) req.session().attribute("userIdSession"));
+		public static Estudiante getAlumno(Request req, Response res) {		
+			return obtenerAlumnoSiExiste((int) req.session().attribute("userIdSession"));
 		}
 		
 		public static String modificarAlumno(Request req, Response res) {
-			Alumno alumnoActual = obtenerAlumnoSiExiste(req.session().attribute("userIdSession"));		
-			Alumno alumnoNuevo = parserAlumnos.jsonToObject(req.body(), Alumno.class);
-			
+			Estudiante alumnoActual = obtenerAlumnoSiExiste(req.session().attribute("userIdSession"));		
+			Estudiante alumnoNuevo = new Gson().fromJson(req.body(),Estudiante.class);
 			alumnoActual.setNombre(alumnoNuevo.getNombre() != null ? alumnoNuevo.getNombre() : alumnoActual.getNombre());
-			alumnoActual.setEmail(alumnoNuevo.getEmail() != null ? alumnoNuevo.getEmail() : alumnoActual.getEmail());
 			alumnoActual.setApellido(alumnoNuevo.getApellido() != null ? alumnoNuevo.getApellido() : alumnoActual.getApellido());
-			alumnoActual.setGithubUser(alumnoNuevo.getGithubUser() != null ? alumnoNuevo.getGithubUser() : alumnoActual.getGithubUser());
-			
+			alumnoActual.setUsuariogit(alumnoNuevo.getUsuariogit() != null ? alumnoNuevo.getUsuariogit() : alumnoActual.getUsuariogit());
 			return "OK";
 		}
 		
-		public static List<Asignacion> getAsignaciones(Request req, Response res) {
+		public static List<TareaHttp> getAsignaciones(Request req, Response res) {
 			return obtenerAlumnoSiExiste(req.session().attribute("userIdSession")).getAsignaciones();
 		}
 		
+
 }

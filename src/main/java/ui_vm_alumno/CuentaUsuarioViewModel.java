@@ -3,7 +3,7 @@ package ui_vm_alumno;
 import org.uqbar.commons.utils.Observable;
 
 import modelo.Estudiante;
-import modelo.RepoEstudiantes;
+
 
 @Observable
 public class CuentaUsuarioViewModel {
