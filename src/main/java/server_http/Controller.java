@@ -14,7 +14,7 @@ public class Controller {
 			Estudiante alumno = RepoEstudiantesServer.getInstance().obtenerporID(id);
 			
 			if (alumno == null) {
-				Spark.halt(401, "Me mandaste cualquier cosaa, no te hagas el gil");
+				Spark.halt(401, "No existe el usuario");
 			}
 			
 			return alumno;		
@@ -33,8 +33,8 @@ public class Controller {
 			return "OK";
 		}
 		
-		public static List<TareaHttp> getAsignaciones(Request req, Response res) {
-			return obtenerAlumnoSiExiste(req.session().attribute("userIdSession")).getAsignaciones();
+		public static List<TareaHttp> getTareas(Request req, Response res) {
+			return RepoAsignacionesServer.getInstance().getTareasPorID(req.session().attribute("userIdSession"));
 		}
 		
 
