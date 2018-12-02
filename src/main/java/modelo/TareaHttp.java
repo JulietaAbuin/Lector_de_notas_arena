@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TareaHttp {
 	private String title;
@@ -56,5 +57,18 @@ public class TareaHttp {
 		this.grades = grades;
 	}
 	
-
+	public String toJson() {
+		
+		Optional<String> grados = grades.stream().map( x -> "\""+ x + "\"").reduce((a,b) -> a + ", " + b);
+		
+		
+		String json = "{"
+				+ "title : \"" + this.title + "\","  
+				+ "id : \"" + this.id + "\","
+				+ "description : \"" + this.description + "\","
+				+ "grades : [" + grados + "]"
+				+ "}";
+		
+		return json;
+	}
 }

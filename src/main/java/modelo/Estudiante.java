@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Estudiante {
 	private long id;
@@ -65,6 +66,20 @@ public boolean esIgualporID(long id2) {
 	}
 	public List<TareaHttp> getAsignaciones() {
 		return RepoAsignaciones.getInstance().filtrarPorAlumno(this);
+	}
+	
+	public String toJson() {
+		return "{ id = \""+ this.id +"\","
+						+ "first_name : \""+ this.first_name +"\","
+						+ "last_name : \""+ this.last_name +"\""
+						+ "github_user : \""+ this.github_user +"\","
+						+ "code : \""+ this.code +"\""
+						+ " }";
+	}
+	
+	public Optional<String> getAsignacionesToJson() {
+		return getAsignaciones().stream().map(x -> x.toJson()).
+				reduce( (a,b) -> a + ", " + b ); 
 	}
 
 }

@@ -23,9 +23,9 @@ public class Router  {
 
 		Spark.get("/", (req, res) -> "Hello world!");
 		
-		Spark.get("/student", Controller::getAlumno, new AlumnoToJson());		
+		Spark.get("/student", Controller::getAlumno);		
 		
-		Spark.get("/student/asignaciones", Controller::getAsignaciones, new AlumnoAsignacionesToJson());
+		Spark.get("/student/asignaciones", Controller::getAsignaciones);
 		
 		Spark.put("/student",  Controller::modificarAlumno);
 		

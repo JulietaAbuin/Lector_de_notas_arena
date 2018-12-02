@@ -20,8 +20,14 @@ public class Controller {
 			return alumno;		
 		}
 		
-		public static Estudiante getAlumno(Request req, Response res) {		
-			return obtenerAlumnoSiExiste((int) req.session().attribute("userIdSession"));
+		public static String getAlumno(Request req, Response res) {		
+			Estudiante estudiante = obtenerAlumnoSiExiste((int) req.session().attribute("userIdSession"));
+			
+			if(estudiante != null) {
+				return estudiante.toJson();				
+			}
+			
+			return null;
 		}
 		
 		public static String modificarAlumno(Request req, Response res) {
@@ -37,5 +43,16 @@ public class Controller {
 			return RepoAsignacionesServer.getInstance().getTareasPorID(req.session().attribute("userIdSession"));
 		}
 		
-
+		public static String getAsignaciones(Request req, Response res) {		
+			Estudiante estudiante = obtenerAlumnoSiExiste((int) req.session().attribute("userIdSession"));
+			
+			if(estudiante != null) {
+				
+				return "{ assignements : [" + estudiante.getAsignacionesToJson() + "]}";
+				
+				
+			}
+		
+			return null;
+		}
 }
