@@ -99,30 +99,14 @@
 	    <version>3.4.1</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-  	<dependency>
-  	    <groupId>com.fasterxml.jackson.core</groupId>
-  	    <artifactId>jackson-databind</artifactId>
-  	    <version>2.9.5</version>
-  	</dependency>
-  	
-  	<dependency>
-      	<groupId>com.fasterxml.jackson.module</groupId>
-      	<artifactId>jackson-module-parameter-names</artifactId>
-      	<version>2.9.5</version>
-  	</dependency>
-
-  	<dependency>
-      	<groupId>com.fasterxml.jackson.datatype</groupId>
-      	<artifactId>jackson-datatype-jdk8</artifactId>
-      	<version>2.9.5</version>
-  	</dependency>
-  	<dependency>
-      	<groupId>com.fasterxml.jackson.datatype</groupId>
-      	<artifactId>jackson-datatype-jsr310</artifactId>
-      	<version>2.9.5</version>
-  	</dependency>
-		
+	
+	
+ <dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-simple</artifactId>
+		<version>1.7.21</version>
+	</dependency>
+    
 	</dependencies>
 
 </project>

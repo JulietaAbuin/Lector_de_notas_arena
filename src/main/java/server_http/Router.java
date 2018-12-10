@@ -13,19 +13,20 @@ public class Router  {
 		Spark.before((req, res) -> {
 			
 			
-			try {
+		//	try {
 				Long userId = securityService.user(req.headers("Authorization").replace("Bearer ", ""));
 				req.session().attribute("userIdSession", userId);
-			} catch (Exception e) {
+			/* } catch (Exception e) {
 				Spark.halt(401, "<h1><a href='https://www.youtube.com/watch?v=0Jx8Eay5fWQ'>Hack me </a></h1><br/><br/><br/><a href='https://www.youtube.com/watch?v=PtLmEARfStE'> El aleph </a>");
-			}
-		});
+			}*/
+		}
+		);
 
 		Spark.get("/", (req, res) -> "Hello world!");
 		
 		Spark.get("/student", Controller::getAlumno);		
 		
-		Spark.get("/student/asignaciones", Controller::getAsignaciones);
+		Spark.get("/student/assignments", Controller::getAsignaciones);
 		
 		Spark.put("/student",  Controller::modificarAlumno);
 		
