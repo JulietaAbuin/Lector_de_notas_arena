@@ -1,9 +1,12 @@
 package server_http;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
 import modelo.Estudiante;
+import modelo.RepoAsignaciones;
 import modelo.TareaHttp;
+import scala.Console;
 import spark.Request;
 import spark.Response;
 import spark.Spark;
@@ -44,11 +47,10 @@ public class Controller {
 		}
 		
 		public static String getAsignaciones(Request req, Response res) {		
-			Estudiante estudiante = obtenerAlumnoSiExiste((int) req.session().attribute("userIdSession"));
-			
+			Estudiante estudiante = obtenerAlumnoSiExiste(req.session().attribute("userIdSession"));
 			if(estudiante != null) {
 				
-				return "{ assignements : [" + estudiante.getAsignacionesToJson() + "]}";
+				return "{ assignements : [" + RepoAsignacionesServer.getInstance().getTareasPorID( req.session().attribute("userIdSession")).get(0).toJson() + "]}";
 				
 				
 			}

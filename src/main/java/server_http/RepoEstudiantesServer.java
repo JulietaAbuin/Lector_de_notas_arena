@@ -27,7 +27,7 @@ private static RepoEstudiantesServer repo;
 		return estudiantes;
 	}
 	
-	public Estudiante obtenerporID(long id) {
+	public Estudiante obtenerporID(int id) {
 	Estudiante est = null;
 	est=estudiantes.stream().filter(e->e.esIgualporID(id)).collect(Collectors.toList()).get(0);
 	return est;

@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class Estudiante {
-	private long id;
-	public long getId() {
+	private int id;
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	private String first_name;
@@ -43,6 +43,7 @@ public class Estudiante {
 	
 	public Estudiante(String nombre, String apellido, int legajo, String usuariogit) {
 		super();
+		this.id=legajo;
 		this.first_name = nombre;
 		this.last_name = apellido;
 		this.code = legajo;
@@ -54,7 +55,7 @@ public class Estudiante {
 		return this.first_name.equals(nombre2) && this.code == legajo2;
 	}
 	
-public boolean esIgualporID(long id2) {
+public boolean esIgualporID(int id2) {
 		
 		return (this.getId()==id2);
 	}
@@ -71,7 +72,7 @@ public boolean esIgualporID(long id2) {
 	public String toJson() {
 		return "{ id = \""+ this.id +"\","
 						+ "first_name : \""+ this.first_name +"\","
-						+ "last_name : \""+ this.last_name +"\""
+						+ "last_name : \""+ this.last_name +"\","
 						+ "github_user : \""+ this.github_user +"\","
 						+ "code : \""+ this.code +"\""
 						+ " }";

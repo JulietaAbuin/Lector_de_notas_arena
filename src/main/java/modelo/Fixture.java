@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.ArrayList;
 
+import server_http.RepoAsignacionesServer;
+import server_http.RepoEstudiantesServer;
+
 public class Fixture {
 	public static void initialize() {
 		Integer uno = new Integer(1);
@@ -37,5 +40,11 @@ public class Fixture {
 		RepoDocentes.getInstance().agregar(mabel);
 		RepoAsignaciones.getInstance().agregar(Economia);
 		RepoAsignaciones.getInstance().agregar(Ingles);
+		RepoEstudiantesServer.getInstance().agregar(julieta);
+		TareaServer tarea = new TareaServer("Ingles");
+		tarea.setEstudiante(julieta);
+		RepoAsignacionesServer.getInstance().agregar(tarea);
+		
+		
 	}
 }

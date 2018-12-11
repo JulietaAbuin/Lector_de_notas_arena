@@ -46,7 +46,7 @@ public class RepoAsignacionesServer {
 	}
 
 
-	public  List<TareaHttp> getTareasPorID(Long id) {
+	public  List<TareaHttp> getTareasPorID(int id) {
 		List<TareaHttp> tareasNuevas = new ArrayList<>();
 		tareasNuevas =	Tareas.stream().filter(a->a.esDelAlumno(id)).map(tarea->this.convertirHttp(tarea)).collect(Collectors.toList());
 		return tareasNuevas;

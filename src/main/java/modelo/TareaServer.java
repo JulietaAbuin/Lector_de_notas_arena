@@ -9,7 +9,7 @@ public class TareaServer {
 	private List<String> grades;
 	private Estudiante estudiante; 
 	
-	public boolean esDelAlumno (Long ID) {
+	public boolean esDelAlumno (int ID) {
 		return estudiante.esIgualporID(ID);
 	}
 	
