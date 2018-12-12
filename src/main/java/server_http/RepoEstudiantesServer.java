@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.sun.jersey.api.client.ClientResponse;
+
+import conexion_http.Cliente;
+import conexion_http.JsonToEstudiante;
 import modelo.Estudiante;
 
 public class RepoEstudiantesServer {
@@ -31,6 +35,19 @@ private static RepoEstudiantesServer repo;
 	Estudiante est = null;
 	est=estudiantes.stream().filter(e->e.esIgualporID(id)).collect(Collectors.toList()).get(0);
 	return est;
+	}
+	
+	public Estudiante obtener() {
+		Cliente cliente = new Cliente();
+		return JsonToEstudiante.main(cliente.getEstudiante());
+	}
+	
+	public boolean contieneA(String nombre, int legajo) {
+		Cliente cliente = new Cliente();
+		ClientResponse response = cliente.getEstudiante();
+		Estudiante est = JsonToEstudiante.main(response);
+	return est.tieneNombreIgual(nombre) & est.tieneLegajoIgual(legajo);
+		
 	}
 	
 }

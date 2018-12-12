@@ -65,10 +65,10 @@ public boolean esIgualporID(int id2) {
 	public boolean tieneLegajoIgual(int legajo2) {
 		return legajo2 == this.code;
 	}
-	public List<TareaHttp> getAsignaciones() {
+	/*public List<TareaHttp> getAsignaciones() {
 		return RepoAsignaciones.getInstance().filtrarPorAlumno(this);
 	}
-	
+	*/
 	public String toJson() {
 		return "{ id = \""+ this.id +"\","
 						+ "first_name : \""+ this.first_name +"\","
@@ -78,9 +78,9 @@ public boolean esIgualporID(int id2) {
 						+ " }";
 	}
 	
-	public Optional<String> getAsignacionesToJson() {
+/*	public Optional<String> getAsignacionesToJson() {
 		return getAsignaciones().stream().map(x -> x.toJson()).
 				reduce( (a,b) -> a + ", " + b ); 
-	}
+	}*/
 
 }

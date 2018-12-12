@@ -50,7 +50,7 @@ public class Controller {
 			Estudiante estudiante = obtenerAlumnoSiExiste(req.session().attribute("userIdSession"));
 			if(estudiante != null) {
 				
-				return "{ assignements : [" + RepoAsignacionesServer.getInstance().getTareasPorID( req.session().attribute("userIdSession")).get(0).toJson() + "]}";
+				return "[" + RepoAsignacionesServer.getInstance().getTareasPorID( req.session().attribute("userIdSession")).get(0).toJson() + "]";
 				
 				
 			}

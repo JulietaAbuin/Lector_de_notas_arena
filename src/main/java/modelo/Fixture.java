@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import server_http.RepoAsignacionesServer;
 import server_http.RepoEstudiantesServer;
@@ -42,6 +43,10 @@ public class Fixture {
 		RepoAsignaciones.getInstance().agregar(Ingles);
 		RepoEstudiantesServer.getInstance().agregar(julieta);
 		TareaServer tarea = new TareaServer("Ingles");
+		List<String> grades = new ArrayList<>();
+		tarea.setDescription("Parcial");
+		grades.add("6"); grades.add("7");
+		tarea.setGrades(grades);
 		tarea.setEstudiante(julieta);
 		RepoAsignacionesServer.getInstance().agregar(tarea);
 		

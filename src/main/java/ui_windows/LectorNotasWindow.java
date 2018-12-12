@@ -10,6 +10,7 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 
 import modelo.RepoEstudiantes;
+import server_http.RepoEstudiantesServer;
 import ui_vm.LectorViewModel;
 import ui_windows_usuario.UsuarioWindow;
 
@@ -40,8 +41,8 @@ public class LectorNotasWindow extends Dialog<LectorViewModel>{
 
 	public void confirmarEstudiante() {
 		
-		if(RepoEstudiantes.getInstance().contieneA(owner.getNombreIngresado(),owner.getLegajoIngresado())){
-		Dialog<?> dialog = new UsuarioWindow(this,RepoEstudiantes.getInstance().obtener(owner.getNombreIngresado()));
+		if(RepoEstudiantesServer.getInstance().contieneA(owner.getNombreIngresado(),owner.getLegajoIngresado())){
+		Dialog<?> dialog = new UsuarioWindow(this,RepoEstudiantesServer.getInstance().obtener());
 			dialog.open();
 			dialog.onAccept(() -> {});
 	

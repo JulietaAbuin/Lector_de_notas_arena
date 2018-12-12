@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import conexion_http.Cliente;
+import conexion_http.JsonToAsignacion;
+import conexion_http.JsonToEstudiante;
 import modelo.Asignacion;
+import modelo.Estudiante;
 import modelo.TareaHttp;
 import modelo.TareaServer;
 
@@ -25,7 +29,7 @@ public class RepoAsignacionesServer {
 	}
 
 	public void agregar(TareaServer tarea) {
-		this.Tareas.add(tarea);
+		Tareas.add(tarea);
 	}
 
 	public List<TareaServer> all() {
@@ -50,5 +54,11 @@ public class RepoAsignacionesServer {
 		List<TareaHttp> tareasNuevas = new ArrayList<>();
 		tareasNuevas =	Tareas.stream().filter(a->a.esDelAlumno(id)).map(tarea->this.convertirHttp(tarea)).collect(Collectors.toList());
 		return tareasNuevas;
+	}
+	
+	public List<TareaServer> obtenerAsignaciones(Estudiante estudiante){
+		Cliente cliente = new Cliente();
+		return JsonToAsignacion.main(cliente.getAsignaciones());
+	
 	}
 }

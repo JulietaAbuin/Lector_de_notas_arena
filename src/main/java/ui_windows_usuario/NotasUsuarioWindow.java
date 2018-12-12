@@ -15,6 +15,8 @@ import modelo.TareaD;
 import modelo.TareaHttp;
 import modelo.TareaConceptual;
 import modelo.TareaNumerica;
+import modelo.TareaServer;
+import server_http.RepoAsignacionesServer;
 import ui_vm_alumno.NotasUsuarioViewModel;
 
 public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
@@ -35,14 +37,14 @@ public class NotasUsuarioWindow extends Dialog<NotasUsuarioViewModel> {
 		form.setLayout(new ColumnLayout(4));
 		this.setTitle("Notas");
 
-		RepoAsignaciones.getInstance().filtrarPorAlumno(estudiante)
+		RepoAsignacionesServer.getInstance().obtenerAsignaciones(estudiante)
 		.forEach(tarea -> this.crearAsignacion(tarea, estudiante, form));
 		
 		new Button(form).setCaption("Volver").onClick(this::accept);
 
 	}
 
-	private void crearAsignacion(TareaHttp tarea, Estudiante estudiante, Panel form) {
+	private void crearAsignacion(TareaServer tarea, Estudiante estudiante, Panel form) {
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);
 		new Label(form).setText("").setWidth(120);

@@ -26,14 +26,14 @@ public class CuentaUsuario extends Dialog<CuentaUsuarioViewModel> {
 	
 	@Override
 	protected void createFormPanel(Panel panel) {
+		model.setNombre(estudiante.getNombre());
 		model.setApellido(estudiante.getApellido());
 		model.setLegajo(estudiante.getLegajo());
 		model.setUsuarioGit(estudiante.getUsuariogit());
-		model.setNombre(estudiante.getNombre());
 		Panel form = new Panel(panel);
 		form.setLayout(new ColumnLayout(3));
 		new Label(form).setText("Nombre");
-		new Label(form).setText("nombre");
+		new Label(form).bindValueToProperty("nombre");
 		new TextBox(form).setWidth(130).bindValueToProperty("nombreModificado");
 
 		new Label(form).setText("Apellido");

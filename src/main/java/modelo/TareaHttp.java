@@ -66,7 +66,7 @@ public class TareaHttp {
 				+ "title : \"" + this.title + "\","  
 				+ "id : \"" + this.id + "\","
 				+ "description : \"" + this.description + "\","
-				+ "grades : [" + grados + "]"
+				+ "grades : [" + grados.get().toString() + "]"
 				+ "}";
 		
 		return json;

@@ -30,10 +30,10 @@ public class RepoAsignaciones {
 		return asignaciones.stream().anyMatch(e -> e.esLaAsignacion(materia.getNombre()));
 	}
 
-	public List<TareaHttp> filtrarPorAlumno(Estudiante estudiante) {
+	/*public List<TareaHttp> filtrarPorAlumno(Estudiante estudiante) {
 		Cliente cliente = new Cliente();
 		return JsonToAsignacion.main(cliente.getAsignaciones());
-	}
+	}*/
 
 	public Asignacion filtrarPorNombre(String asignacion) {
 		Asignacion asig = null;

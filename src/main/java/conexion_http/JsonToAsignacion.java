@@ -9,17 +9,20 @@ import com.sun.jersey.api.client.ClientResponse;
 
 
 import modelo.TareaHttp;
+import modelo.TareaServer;
+import scala.Console;
 
 public class JsonToAsignacion {
-	public static List<TareaHttp> main(ClientResponse response) {
+	public static List<TareaServer> main(ClientResponse response) {
 		try {
 			if (response.getStatus() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
 			}
 			String output = response.getEntity(String.class);
-			Type tareasType = new TypeToken<List<TareaHttp>>() {}.getType();    
-		 	List<TareaHttp> tareas = new Gson().fromJson(output,tareasType);
-		 		return tareas;
+			Type tareasType = new TypeToken<List<TareaServer>>() {}.getType();    
+		 	List<TareaServer> tareas = new Gson().fromJson(output,tareasType);
+		 	Console.println(tareas);	
+		 	return tareas;
 
 		} catch (Exception e) {
 			e.printStackTrace();
